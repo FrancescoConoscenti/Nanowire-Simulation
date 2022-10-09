@@ -1,0 +1,30 @@
+
+@include si_nw_fet.tib
+
+Module sweep
+{
+  name = transchar
+  variable = $Vg
+  start = -0.8
+  stop = 0.7
+  steps =  15 
+  solve = driftdiffusion 
+
+  plot_data = true
+}
+
+Module sweep
+{
+  name = transchar_sweep_drain
+  variable = $Vd
+  values = (0.02, 1.0)
+  solve = transchar
+}
+
+Simulation
+{
+  temperature = 300
+  solve = transchar_sweep_drain
+  resultpath = transchar
+  output_format = vtk
+}

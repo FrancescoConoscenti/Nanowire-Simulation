@@ -1,0 +1,22 @@
+# Parameter sweep (outputchar_sweep_gate)
+# Simulation    : sweep_drain
+# Sweep variable: $Vg
+# Data ordering : column
+# Data:
+# --------------------------------------------------
+# Name                     Units          Type
+# --------------------------------------------------
+# drain.current            A              real
+# gate.current             A              real
+# source.current           A              real
+# --------------------------------------------------
+#
+# $Vg drain.current gate.current source.current 
+-0.8 -1.99022e-17 -3.48411e-21 1.99057e-17
+-0.6 -1.71323e-14 3.07824e-21 1.71323e-14
+-0.4 -3.61236e-11 -1.75766e-18 3.61236e-11
+-0.2 -5.71727e-08 -2.76042e-15 5.71727e-08
+0 -9.07412e-07 -5.5137e-14 9.07412e-07
+0.2 -1.52505e-06 -7.43033e-14 1.52505e-06
+0.4 -1.92295e-06 -9.3668e-14 1.92295e-06
+0.6 -2.16345e-06 -1.04846e-13 2.16345e-06

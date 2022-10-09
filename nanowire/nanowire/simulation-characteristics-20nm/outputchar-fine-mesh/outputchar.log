@@ -1,0 +1,3129 @@
+
+Log start: Sat Jun 25 15:22:54 2022
+
+
+tiberCAD release 2.5.1 (rev. 4205, x86_64-linux)
+
+Input file: outputchar.tib
+
+Initialize global simulation options
+  Simulation temperature: 300 K
+  Database search path  : /opt/tibercad-2.5.2/materials
+  Log file              : outputchar/outputchar.log
+
+Setup mesh
+  Reading mesh file si_nw_fet.msh ... done.
+  mesh units          : 1e-09 m
+  mesh dimension      :       3
+  number of nodes     :    4568
+  number of elements  :   21069
+  number of subdomains:       4
+
+Create materials ...
+  Added material Si for region 'source_region' (mesh regions 7)
+    (using datafile /opt/tibercad-2.5.2/materials/Si.dat)
+    x growth direction : (1,0,0)
+    y growth direction : (0,1,0)
+    z growth direction : (0,0,1)
+  Added material Si for region 'drain_region' (mesh regions 6)
+    (using datafile /opt/tibercad-2.5.2/materials/Si.dat)
+    x growth direction : (1,0,0)
+    y growth direction : (0,1,0)
+    z growth direction : (0,0,1)
+  Added material SiO2 for region 'oxide' (mesh regions 4)
+    (using datafile /opt/tibercad-2.5.2/materials/SiO2.dat)
+    x growth direction : (1,0,0)
+    y growth direction : (0,1,0)
+    z growth direction : (0,0,1)
+  Added material Si for region 'channel' (mesh regions 5)
+    (using datafile /opt/tibercad-2.5.2/materials/Si.dat)
+    x growth direction : (1,0,0)
+    y growth direction : (0,1,0)
+    z growth direction : (0,0,1)
+Creation of materials done.
+
+Setting up simulation of type 'driftdiffusion' ...
+  (using /opt/tibercad-2.5.2/x86_64-linux/modules/driftdiffusion/driftdiffusion.so)
+  Adding boundary 'gate'
+  (using /opt/tibercad-2.5.2/x86_64-linux/modules/driftdiffusion/ddbnd_schottky.so)
+  Adding boundary 'source'
+  (using /opt/tibercad-2.5.2/x86_64-linux/modules/driftdiffusion/ddbnd_ohmic.so)
+  Adding boundary 'drain'
+Creating bulk models... 
+  Region: oxide
+  (using /opt/tibercad-2.5.2/x86_64-linux/modules/driftdiffusion/ddbulk_default.so)
+  Region: channel
+  Region: drain_region
+  Region: source_region
+
+Setting up simulation of type 'sweep' ...
+
+Setting up simulation of type 'sweep' ...
+
+Setting up bulk models ...
+  (using /opt/tibercad-2.5.2/x86_64-linux/modules/permittivity_constant.so)
+  (using /opt/tibercad-2.5.2/x86_64-linux/modules/driftdiffusion/band_properties.so)
+  (using /opt/tibercad-2.5.2/x86_64-linux/modules/density_of_states_bulk.so)
+  (using /opt/tibercad-2.5.2/x86_64-linux/modules/driftdiffusion/mobility_field_dependent.so)
+  (using /opt/tibercad-2.5.2/x86_64-linux/modules/driftdiffusion/mobility_doping_dependent.so)
+  (using /opt/tibercad-2.5.2/x86_64-linux/modules/driftdiffusion/mobility_constant.so)
+
+Setting up lower dimensional (boundary) models ...
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for driftdiffusion (driftdiffusion)
+
+Available solution variables:
+------------------------------------------------------------------
+Name                     Units          Type      Association Plot
+------------------------------------------------------------------
+Ec                       eV             real      nodal       y
+Ev                       eV             real      nodal       y
+eQFermi                  eV             real      nodal       y
+hQFermi                  eV             real      nodal       y
+ElPotential              V              real      nodal       y
+Ec0                      eV             real      nodal       n
+Ev0                      eV             real      nodal       n
+Eg                       eV             real      nodal       n
+ConductionBands          eV             n-tuple   cell        n
+ValenceBands             eV             n-tuple   cell        n
+eDensity                 cm^-3          real      nodal       y
+hDensity                 cm^-3          real      nodal       y
+eMobility                cm^2/(V*s)     real      nodal       n
+hMobility                cm^2/(V*s)     real      nodal       n
+eConductivity            S/cm           real      nodal       n
+hConductivity            S/cm           real      nodal       n
+ElField                  V/cm           vector    cell        y
+Polarization             C/m^2          vector    cell        n
+CurrentDensity           A/cm^2         vector    cell        n
+eCurrentDensity          A/cm^2         vector    cell        y
+hCurrentDensity          A/cm^2         vector    cell        y
+IonizedDonors            cm^-3          real      nodal       n
+IonizedAcceptors         cm^-3          real      nodal       n
+IonizedElectronTraps     cm^-3          real      nodal       n
+IonizedHoleTraps         cm^-3          real      nodal       n
+eThElPower               eV/K           real      nodal       n
+hThElPower               eV/K           real      nodal       n
+eJoule                   W/cm^3         real      nodal       n
+hJoule                   W/cm^3         real      nodal       n
+ePowerFlux               W/cm^2         vector    nodal       n
+hPowerFlux               W/cm^2         vector    nodal       n
+ePeltier                 W/cm^3         real      nodal       n
+hPeltier                 W/cm^3         real      nodal       n
+RecombHeat               W/cm^3         real      nodal       n
+IQE                                     real      none        n
+eNetRecombination        1/(s*cm^3)     real      nodal       y
+hNetRecombination        1/(s*cm^3)     real      nodal       y
+drain.current            A              real      none        y
+gate.current             A              real      none        y
+source.current           A              real      none        y
+RegionIDs                               real      cell        n
+------------------------------------------------------------------
+
+Output directory      : outputchar
+Output file format    : vtk
+Output file basename  : driftdiffusion
+
+
+solving for : poisson electrons 
+using local scaling
+
+# Region channel, Si
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 2.22348  0.320972  12
+    Ec = 2.22348, Nc = 2.73795e+19 cm^-3
+    m_dos = 0.320972, v_th = 2.06151e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 1.10467  1.63813  2
+    Ev = 1.10467, Nv = 5.26133e+19 cm^-3
+    m_dos = 1.63813, v_th = 9.12524e+06 cm/s
+  Eg = 1.11881, Ef0 = 1.20924, ni = 1.51469e+10
+
+# Region drain_region, Si
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 2.22348  0.320972  12
+    Ec = 2.22348, Nc = 2.73795e+19 cm^-3
+    m_dos = 0.320972, v_th = 2.06151e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 1.10467  1.63813  2
+    Ev = 1.10467, Nv = 5.26133e+19 cm^-3
+    m_dos = 1.63813, v_th = 9.12524e+06 cm/s
+  Eg = 1.11881, Ef0 = 2.2081, ni = 1.39946e+10
+
+# Region oxide, SiO2
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 5.34  0.5  12
+    Ec = 5.34, Nc = 5.32328e+19 cm^-3
+    m_dos = 0.5, v_th = 1.65171e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : -3.66  1  2
+    Ev = -3.66, Nv = 2.50942e+19 cm^-3
+    m_dos = 1, v_th = 1.16793e+07 cm/s
+  Eg = 9, Ef0 = 0.84, ni = 9.25313e-57
+
+# Region source_region, Si
+  Conduction band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 2.22348  0.320972  12
+    Ec = 2.22348, Nc = 2.73795e+19 cm^-3
+    m_dos = 0.320972, v_th = 2.06151e+07 cm/s
+  Valence band:
+    DOS: bulk
+      band : energy  DOS mass  degeneracy
+      1 : 1.10467  1.63813  2
+    Ev = 1.10467, Nv = 5.26133e+19 cm^-3
+    m_dos = 1.63813, v_th = 9.12524e+06 cm/s
+  Eg = 1.11881, Ef0 = 2.2081, ni = 1.39946e+10
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for sweep_drain (sweep)
+
+Output directory      : outputchar
+Output file format    : vtk
+Output file basename  : sweep_drain
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation options for outputchar_sweep_gate (sweep)
+
+Output directory      : outputchar
+Output file format    : vtk
+Output file basename  : outputchar_sweep_gate
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+We solve: outputchar_sweep_gate 
+
+>>>>------------------------- (outputchar_sweep_gate) --------------------------
+  Ramping to sweep value $Vg = -0.8
+
+*** Warning: driftdiffusion has never been solved before ramping.
+  Trying $Vg = -0.8
+
+  >>>>---------------------------- (driftdiffusion) ----------------------------
+    Setting max_iterations for nonlinear solver to 150
+    Solving equilibrium
+    it 1, |du| = 58.0225, |r| = 17.5791  alpha = 1
+    it 2, |du| = 2.85592, |r| = 2.96757  alpha = 1
+    it 3, |du| = 0.979193, |r| = 0.366814  alpha = 1
+    it 4, |du| = 0.310062, |r| = 0.015211  alpha = 1
+    it 5, |du| = 0.0217684, |r| = 5.52465e-05  alpha = 1
+
+    iterations: 6, |du| = 9.23665e-05, |r| = 9.02931e-10
+    Equilibrium done
+    it 1, |du| = 30.9453, |r| = 25.8685  alpha = 1
+    it 2, |du| = 20.9136, |r| = 0.485003  alpha = 1
+    it 3, |du| = 1.72296, |r| = 0.0585511  alpha = 1
+    it 4, |du| = 0.108303, |r| = 0.000641406  alpha = 1
+
+    iterations: 5, |du| = 0.000939689, |r| = 6.54702e-08
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+    drain               0                   0
+    source              0                   0
+    gate               -0.8                 0
+
+  Solve time: 0h 0m 55s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>----------------------------- (sweep_drain) ------------------------------
+    Ramping to sweep value $Vd = 0
+    Trying $Vd = 0
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+
+      iterations: 1, |du| = 9.3786e-08, |r| = 3.1705e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0                   0
+      source              0                   0
+      gate               -0.8                 0
+
+    Solve time: 0h 0m 5.4s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.1
+    Trying $Vd = 0.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0705385  alpha = 1
+      it 2, |du| = 0.974305, |r| = 0.0528805  alpha = 0.25
+      it 3, |du| = 0.443344, |r| = 0.0239995  alpha = 0.5
+      it 4, |du| = 0.206963, |r| = 0.00233684  alpha = 1
+      it 5, |du| = 0.0193661, |r| = 4.87937e-05  alpha = 1
+
+      iterations: 6, |du| = 0.000376839, |r| = 9.59047e-07
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.1                -1.6671e-17
+      source              0                   1.6671e-17
+      gate               -0.8                 3.65323e-24
+
+    Solve time: 0h 0m 35s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.2
+    Trying $Vd = 0.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.219972  alpha = 1
+      it 2, |du| = 0.73734, |r| = 0.145387  alpha = 0.25
+      it 3, |du| = 0.602042, |r| = 0.056967  alpha = 0.5
+      it 4, |du| = 0.354632, |r| = 0.00767496  alpha = 1
+      it 5, |du| = 0.0303079, |r| = 0.000390115  alpha = 1
+      it 6, |du| = 0.00122692, |r| = 2.08502e-05  alpha = 1
+
+      iterations: 7, |du| = 6.95544e-05, |r| = 1.09692e-06
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.2                -1.72546e-17
+      source              0                   1.72551e-17
+      gate               -0.8                -5.32927e-22
+
+    Solve time: 0h 0m 39s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.3
+    Trying $Vd = 0.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.735372  alpha = 1
+      it 2, |du| = 1.42293, |r| = 0.30955  alpha = 1
+      it 3, |du| = 0.345559, |r| = 0.0256403  alpha = 1
+      it 4, |du| = 0.0423599, |r| = 0.000417514  alpha = 1
+
+      iterations: 5, |du| = 0.000950905, |r| = 2.03251e-05
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.3                -1.75536e-17
+      source              0                   1.7551e-17
+      gate               -0.8                 2.61838e-21
+
+    Solve time: 0h 0m 27s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.4
+    Trying $Vd = 0.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.744127  alpha = 1
+      it 2, |du| = 1.63921, |r| = 0.303157  alpha = 0.5
+      it 3, |du| = 0.55346, |r| = 0.0723106  alpha = 1
+      it 4, |du| = 0.0643242, |r| = 0.00181658  alpha = 1
+      it 5, |du| = 0.00114778, |r| = 4.59956e-05  alpha = 1
+
+      iterations: 6, |du| = 4.14274e-05, |r| = 3.20617e-06
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.4                -1.78303e-17
+      source              0                   1.78243e-17
+      gate               -0.8                 6.00201e-21
+
+    Solve time: 0h 0m 34s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.5
+    Trying $Vd = 0.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 2.68303  alpha = 1
+      it 2, |du| = 2.43104, |r| = 1.08003  alpha = 1
+      it 3, |du| = 0.604117, |r| = 0.242948  alpha = 1
+      it 4, |du| = 0.263547, |r| = 0.0269092  alpha = 1
+      it 5, |du| = 0.0461482, |r| = 0.00163932  alpha = 1
+      it 6, |du| = 0.00164046, |r| = 0.000148714  alpha = 1
+
+      iterations: 7, |du| = 0.000139537, |r| = 1.50998e-05
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.5                -1.80837e-17
+      source              0                   1.8076e-17
+      gate               -0.8                 7.70783e-21
+
+    Solve time: 0h 0m 39s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.6
+    Trying $Vd = 0.6
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 4.81153  alpha = 1
+      it 2, |du| = 2.24683, |r| = 1.86717  alpha = 1
+      it 3, |du| = 0.59338, |r| = 0.486199  alpha = 1
+      it 4, |du| = 0.274044, |r| = 0.0745008  alpha = 1
+      it 5, |du| = 0.0523649, |r| = 0.00734766  alpha = 1
+      it 6, |du| = 0.00616604, |r| = 0.000747743  alpha = 1
+
+      iterations: 7, |du| = 0.000734209, |r| = 7.83301e-05
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.6                -1.83066e-17
+      source              0                   1.83097e-17
+      gate               -0.8                -3.03899e-21
+
+    Solve time: 0h 0m 42s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.7
+    Trying $Vd = 0.7
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 7.2087  alpha = 1
+      it 2, |du| = 1.54048, |r| = 3.26333  alpha = 1
+      it 3, |du| = 0.780553, |r| = 1.13252  alpha = 1
+      it 4, |du| = 0.528505, |r| = 0.255454  alpha = 1
+      it 5, |du| = 0.202328, |r| = 0.0271766  alpha = 1
+      it 6, |du| = 0.0276633, |r| = 0.0017329  alpha = 1
+      it 7, |du| = 0.00145152, |r| = 0.000139363  alpha = 1
+
+      iterations: 8, |du| = 0.000124215, |r| = 1.41063e-05
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.7                -1.85273e-17
+      source              0                   1.8528e-17
+      gate               -0.8                -7.27108e-22
+
+    Solve time: 0h 0m 45s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.8
+    Trying $Vd = 0.8
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.87016, |r| = 5.15037  alpha = 1
+      it 2, |du| = 1.67552, |r| = 2.30471  alpha = 1
+      it 3, |du| = 0.767105, |r| = 0.788842  alpha = 1
+      it 4, |du| = 0.493252, |r| = 0.175147  alpha = 1
+      it 5, |du| = 0.16455, |r| = 0.0170667  alpha = 1
+      it 6, |du| = 0.01859, |r| = 0.000998935  alpha = 1
+
+      iterations: 7, |du| = 0.000840965, |r| = 9.11221e-05
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.8                -1.87292e-17
+      source              0                   1.8733e-17
+      gate               -0.8                -3.81508e-21
+
+    Solve time: 0h 0m 42s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.9
+    Trying $Vd = 0.9
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.87743, |r| = 4.84136  alpha = 1
+      it 2, |du| = 1.49005, |r| = 1.70228  alpha = 1
+      it 3, |du| = 0.522162, |r| = 0.377647  alpha = 1
+      it 4, |du| = 0.179385, |r| = 0.0435937  alpha = 1
+      it 5, |du| = 0.027143, |r| = 0.00374062  alpha = 1
+      it 6, |du| = 0.0023044, |r| = 0.000372204  alpha = 1
+
+      iterations: 7, |du| = 0.000248087, |r| = 3.99099e-05
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.9                -1.89283e-17
+      source              0                   1.89264e-17
+      gate               -0.8                 1.91002e-21
+
+    Solve time: 0h 0m 37s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1
+    Trying $Vd = 1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 4.25186  alpha = 1
+      it 2, |du| = 1.29879, |r| = 1.38561  alpha = 1
+      it 3, |du| = 0.471625, |r| = 0.283638  alpha = 1
+      it 4, |du| = 0.140635, |r| = 0.0331222  alpha = 1
+      it 5, |du| = 0.017304, |r| = 0.00352974  alpha = 1
+      it 6, |du| = 0.0017344, |r| = 0.000431383  alpha = 1
+
+      iterations: 7, |du| = 0.00023785, |r| = 5.82229e-05
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1                  -1.91126e-17
+      source              0                   1.91096e-17
+      gate               -0.8                 3.05911e-21
+
+    Solve time: 0h 0m 32s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.1
+    Trying $Vd = 1.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 4.10421  alpha = 1
+      it 2, |du| = 1.14989, |r| = 1.34353  alpha = 1
+      it 3, |du| = 0.824194, |r| = 0.304443  alpha = 1
+      it 4, |du| = 0.418455, |r| = 0.0371486  alpha = 1
+      it 5, |du| = 0.0678971, |r| = 0.00332579  alpha = 1
+      it 6, |du| = 0.00205853, |r| = 0.000405552  alpha = 1
+
+      iterations: 7, |du| = 0.000241324, |r| = 6.1242e-05
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.1                -1.92894e-17
+      source              0                   1.92837e-17
+      gate               -0.8                 5.70196e-21
+
+    Solve time: 0h 0m 42s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.2
+    Trying $Vd = 1.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 7.50296  alpha = 1
+      it 2, |du| = 1.45783, |r| = 3.71524  alpha = 1
+      it 3, |du| = 0.786612, |r| = 1.53682  alpha = 1
+      it 4, |du| = 0.591621, |r| = 0.475206  alpha = 1
+      it 5, |du| = 0.312308, |r| = 0.0929626  alpha = 1
+      it 6, |du| = 0.0809861, |r| = 0.0118576  alpha = 1
+      it 7, |du| = 0.00883918, |r| = 0.00146667  alpha = 1
+
+      iterations: 8, |du| = 0.000794326, |r| = 0.000185392
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.2                -1.94511e-17
+      source              0                   1.94496e-17
+      gate               -0.8                 1.53647e-21
+
+    Solve time: 0h 0m 48s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.3
+    Trying $Vd = 1.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 5.5052, |r| = 20.4228  alpha = 1
+      it 2, |du| = 1.60986, |r| = 11.8916  alpha = 1
+      it 3, |du| = 1.00372, |r| = 6.19538  alpha = 1
+      it 4, |du| = 0.948602, |r| = 2.83912  alpha = 1
+      it 5, |du| = 0.874357, |r| = 1.09053  alpha = 1
+      it 6, |du| = 0.684638, |r| = 0.323938  alpha = 1
+      it 7, |du| = 0.351319, |r| = 0.0623214  alpha = 1
+      it 8, |du| = 0.0760919, |r| = 0.00758736  alpha = 1
+      it 9, |du| = 0.00530406, |r| = 0.000836006  alpha = 1
+
+      iterations: 10, |du| = 0.000390187, |r| = 9.2056e-05
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.3                -1.96158e-17
+      source              0                   1.96081e-17
+      gate               -0.8                 7.61479e-21
+
+    Solve time: 0h 0m 60s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.4
+    Trying $Vd = 1.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 9.74414  alpha = 1
+      it 2, |du| = 0.949415, |r| = 4.36909  alpha = 1
+      it 3, |du| = 0.752736, |r| = 1.51623  alpha = 1
+      it 4, |du| = 0.50236, |r| = 0.349984  alpha = 1
+      it 5, |du| = 0.184838, |r| = 0.0445466  alpha = 1
+      it 6, |du| = 0.0250999, |r| = 0.00491245  alpha = 1
+      it 7, |du| = 0.00183445, |r| = 0.000683811  alpha = 1
+
+      iterations: 8, |du| = 0.000290432, |r| = 0.00010051
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.4                -1.97636e-17
+      source              0                   1.976e-17
+      gate               -0.8                 3.61159e-21
+
+    Solve time: 0h 0m 47s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.5
+    Trying $Vd = 1.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 3.6032  alpha = 1
+      it 2, |du| = 0.986747, |r| = 1.00362  alpha = 1
+      it 3, |du| = 0.347818, |r| = 0.172989  alpha = 1
+      it 4, |du| = 0.0892797, |r| = 0.0155705  alpha = 1
+      it 5, |du| = 0.00761723, |r| = 0.00137246  alpha = 1
+
+      iterations: 6, |du| = 0.000555353, |r| = 0.000177471
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.5                -1.99022e-17
+      source              0                   1.99057e-17
+      gate               -0.8                -3.48411e-21
+
+    Solve time: 0h 0m 38s
+    <<<<------------------------------------------------------------------------
+
+  Solve time: 0h 10m 42s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vg = -0.6
+  Trying $Vg = -0.6
+
+  >>>>---------------------------- (driftdiffusion) ----------------------------
+    it 1, |du| = 7.73634, |r| = 0.116917  alpha = 1
+    it 2, |du| = 0.152858, |r| = 0.00166965  alpha = 1
+    it 3, |du| = 0.00236948, |r| = 3.76733e-07  alpha = 1
+
+    iterations: 4, |du| = 5.61538e-07, |r| = 3.38186e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+    drain               0                   0
+    source              0                   0
+    gate               -0.6                 0
+
+  Solve time: 0h 0m 24s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>----------------------------- (sweep_drain) ------------------------------
+    Ramping to sweep value $Vd = 0
+    Trying $Vd = 0
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+
+      iterations: 1, |du| = 1.19495e-13, |r| = 3.12481e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0                   0
+      source              0                   0
+      gate               -0.6                 0
+
+    Solve time: 0h 0m 5.9s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.1
+    Trying $Vd = 0.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0430432  alpha = 1
+      it 2, |du| = 0.956349, |r| = 0.040409  alpha = 0.0625
+      it 3, |du| = 1.09727, |r| = 0.0356139  alpha = 0.125
+      it 4, |du| = 0.882705, |r| = 0.0261924  alpha = 0.25
+      it 5, |du| = 0.657457, |r| = 0.0111362  alpha = 0.5
+      it 6, |du| = 0.325627, |r| = 0.0011433  alpha = 1
+      it 7, |du| = 0.0490339, |r| = 1.86566e-05  alpha = 1
+      it 8, |du| = 0.00134533, |r| = 1.40449e-07  alpha = 1
+
+      iterations: 9, |du| = 2.0662e-05, |r| = 9.3942e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.1                -1.51785e-14
+      source              0                   1.51785e-14
+      gate               -0.6                -1.90843e-21
+
+    Solve time: 0h 1m 4.6s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.2
+    Trying $Vd = 0.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.16255  alpha = 1
+      it 2, |du| = 2.11259, |r| = 0.144596  alpha = 0.125
+      it 3, |du| = 1.42497, |r| = 0.116433  alpha = 0.25
+      it 4, |du| = 1.11997, |r| = 0.0816324  alpha = 0.5
+      it 5, |du| = 0.843193, |r| = 0.0451685  alpha = 0.5
+      it 6, |du| = 1.80028, |r| = 0.0161521  alpha = 1
+      it 7, |du| = 0.458038, |r| = 0.00360882  alpha = 1
+      it 8, |du| = 0.249919, |r| = 0.00156391  alpha = 1
+      it 9, |du| = 0.111409, |r| = 0.000679082  alpha = 0.5
+      it 10, |du| = 0.0176311, |r| = 8.2189e-06  alpha = 1
+
+      iterations: 11, |du| = 0.000431976, |r| = 4.92317e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.2                -1.54088e-14
+      source              0                   1.54088e-14
+      gate               -0.6                 4.65911e-23
+
+    Solve time: 0h 1m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.3
+    Trying $Vd = 0.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 7.64502, |r| = 47.1587  alpha = 1
+      it 2, |du| = 8.84979, |r| = 18.4278  alpha = 1
+      it 3, |du| = 6.20155, |r| = 6.86047  alpha = 1
+      it 4, |du| = 1.39094, |r| = 2.51851  alpha = 1
+      it 5, |du| = 1.63431, |r| = 0.888868  alpha = 1
+      it 6, |du| = 3.35114, |r| = 0.311645  alpha = 1
+      it 7, |du| = 2.21622, |r| = 0.0991975  alpha = 1
+      it 8, |du| = 1.20108, |r| = 0.0655595  alpha = 0.5
+      it 9, |du| = 0.535359, |r| = 0.0293274  alpha = 1
+      it 10, |du| = 0.268282, |r| = 0.00806992  alpha = 1
+      it 11, |du| = 0.0972957, |r| = 0.000799506  alpha = 1
+      it 12, |du| = 0.0130263, |r| = 1.33545e-05  alpha = 1
+
+      iterations: 13, |du| = 0.000248043, |r| = 3.69575e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.3                -1.56332e-14
+      source              0                   1.56332e-14
+      gate               -0.6                 3.95266e-21
+
+    Solve time: 0h 1m 20s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.4
+    Trying $Vd = 0.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 7.25941, |r| = 11.5736  alpha = 1
+      it 2, |du| = 2.54265, |r| = 4.26675  alpha = 1
+      it 3, |du| = 5.10406, |r| = 1.57558  alpha = 1
+      it 4, |du| = 2.9723, |r| = 0.58171  alpha = 1
+      it 5, |du| = 1.36065, |r| = 0.206935  alpha = 1
+      it 6, |du| = 1.60909, |r| = 0.0626446  alpha = 1
+      it 7, |du| = 0.671297, |r| = 0.0191308  alpha = 1
+      it 8, |du| = 0.40163, |r| = 0.00365536  alpha = 1
+      it 9, |du| = 0.154536, |r| = 0.000208944  alpha = 1
+      it 10, |du| = 0.0100231, |r| = 2.9861e-06  alpha = 1
+
+      iterations: 11, |du| = 0.000131165, |r| = 3.09989e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.4                -1.58156e-14
+      source              0                   1.58156e-14
+      gate               -0.6                -1.59244e-21
+
+    Solve time: 0h 1m 7.2s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.5
+    Trying $Vd = 0.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 1.47361  alpha = 1
+      it 2, |du| = 3.44771, |r| = 0.495698  alpha = 1
+      it 3, |du| = 5.41776, |r| = 0.196832  alpha = 1
+      it 4, |du| = 1.9543, |r| = 0.0849605  alpha = 1
+      it 5, |du| = 1.48734, |r| = 0.033061  alpha = 1
+      it 6, |du| = 0.872011, |r| = 0.00785222  alpha = 1
+      it 7, |du| = 0.31405, |r| = 0.00273975  alpha = 1
+      it 8, |du| = 0.0382977, |r| = 0.000701949  alpha = 1
+      it 9, |du| = 0.0200023, |r| = 0.000123751  alpha = 1
+      it 10, |du| = 0.00516582, |r| = 5.50105e-06  alpha = 1
+
+      iterations: 11, |du| = 0.00025222, |r| = 2.36242e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.5                -1.59866e-14
+      source              0                   1.59866e-14
+      gate               -0.6                -5.37059e-22
+
+    Solve time: 0h 1m 7.4s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.6
+    Trying $Vd = 0.6
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 4.13482, |r| = 2.47717  alpha = 1
+      it 2, |du| = 7.55328, |r| = 0.978394  alpha = 1
+      it 3, |du| = 4.73984, |r| = 0.347025  alpha = 1
+      it 4, |du| = 1.70105, |r| = 0.124323  alpha = 1
+      it 5, |du| = 1.72436, |r| = 0.0511583  alpha = 1
+      it 6, |du| = 0.728129, |r| = 0.0189428  alpha = 1
+      it 7, |du| = 1.13697, |r| = 0.00369836  alpha = 1
+      it 8, |du| = 0.285266, |r| = 0.000106179  alpha = 1
+      it 9, |du| = 0.00485016, |r| = 1.48833e-06  alpha = 1
+
+      iterations: 10, |du| = 5.50827e-05, |r| = 2.53635e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.6                -1.61409e-14
+      source              0                   1.61409e-14
+      gate               -0.6                -4.04872e-21
+
+    Solve time: 0h 1m 0.98s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.7
+    Trying $Vd = 0.7
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 4.2341, |r| = 2.17591  alpha = 1
+      it 2, |du| = 5.68254, |r| = 0.726084  alpha = 1
+      it 3, |du| = 1.64049, |r| = 0.212878  alpha = 1
+      it 4, |du| = 1.75544, |r| = 0.0656231  alpha = 1
+      it 5, |du| = 1.08761, |r| = 0.0270576  alpha = 1
+      it 6, |du| = 0.877308, |r| = 0.00904801  alpha = 1
+      it 7, |du| = 0.210193, |r| = 0.00148792  alpha = 1
+      it 8, |du| = 0.0664551, |r| = 5.43332e-05  alpha = 1
+      it 9, |du| = 0.00275822, |r| = 5.72012e-07  alpha = 1
+
+      iterations: 10, |du| = 2.20522e-05, |r| = 1.09055e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.7                -1.62824e-14
+      source              0                   1.62824e-14
+      gate               -0.6                 7.76915e-21
+
+    Solve time: 0h 0m 58s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.8
+    Trying $Vd = 0.8
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 7.33351, |r| = 30.436  alpha = 1
+      it 2, |du| = 7.47832, |r| = 11.205  alpha = 1
+      it 3, |du| = 3.60603, |r| = 4.12507  alpha = 1
+      it 4, |du| = 1.71386, |r| = 1.50903  alpha = 1
+      it 5, |du| = 1.53766, |r| = 0.529287  alpha = 1
+      it 6, |du| = 2.86704, |r| = 0.187949  alpha = 1
+      it 7, |du| = 0.944645, |r| = 0.0480172  alpha = 1
+      it 8, |du| = 0.615031, |r| = 0.0151522  alpha = 1
+      it 9, |du| = 0.357485, |r| = 0.00327004  alpha = 1
+      it 10, |du| = 0.156223, |r| = 0.000181083  alpha = 1
+      it 11, |du| = 0.00743108, |r| = 1.50356e-06  alpha = 1
+
+      iterations: 12, |du| = 6.81008e-05, |r| = 1.97422e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.8                -1.64132e-14
+      source              0                   1.64132e-14
+      gate               -0.6                 9.14334e-21
+
+    Solve time: 0h 0m 57s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.9
+    Trying $Vd = 0.9
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.625369  alpha = 1
+      it 2, |du| = 4.53291, |r| = 0.226268  alpha = 1
+      it 3, |du| = 5.89354, |r| = 0.0944182  alpha = 1
+      it 4, |du| = 3.13519, |r| = 0.0340522  alpha = 1
+      it 5, |du| = 0.82867, |r| = 0.00837901  alpha = 1
+      it 6, |du| = 0.325637, |r| = 0.000984131  alpha = 1
+      it 7, |du| = 0.0595437, |r| = 2.45175e-05  alpha = 1
+      it 8, |du| = 0.00165976, |r| = 1.46282e-07  alpha = 1
+
+      iterations: 9, |du| = 6.16226e-06, |r| = 2.56084e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.9                -1.6535e-14
+      source              0                   1.6535e-14
+      gate               -0.6                -3.30712e-21
+
+    Solve time: 0h 0m 33s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1
+    Trying $Vd = 1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 6.59205, |r| = 22.1071  alpha = 1
+      it 2, |du| = 1.7305, |r| = 8.13817  alpha = 1
+      it 3, |du| = 2.94169, |r| = 2.99573  alpha = 1
+      it 4, |du| = 2.259, |r| = 1.10049  alpha = 1
+      it 5, |du| = 1.50361, |r| = 0.394732  alpha = 1
+      it 6, |du| = 2.01874, |r| = 0.125681  alpha = 1
+      it 7, |du| = 2.29558, |r| = 0.0576079  alpha = 1
+      it 8, |du| = 2.61254, |r| = 0.02107  alpha = 1
+      it 9, |du| = 0.997208, |r| = 0.00888317  alpha = 1
+      it 10, |du| = 0.511514, |r| = 0.00457767  alpha = 0.25
+      it 11, |du| = 0.202683, |r| = 0.000930993  alpha = 1
+      it 12, |du| = 0.242887, |r| = 0.000158054  alpha = 1
+      it 13, |du| = 0.0487299, |r| = 5.42181e-06  alpha = 1
+      it 14, |du| = 0.00110916, |r| = 1.11134e-07  alpha = 1
+
+      iterations: 15, |du| = 7.09837e-06, |r| = 1.22864e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1                  -1.66489e-14
+      source              0                   1.66489e-14
+      gate               -0.6                -2.34486e-21
+
+    Solve time: 0h 0m 44s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.1
+    Trying $Vd = 1.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 4.52968, |r| = 0.597959  alpha = 1
+      it 2, |du| = 3.88919, |r| = 0.216789  alpha = 1
+      it 3, |du| = 1.86975, |r| = 0.0731002  alpha = 1
+      it 4, |du| = 0.666246, |r| = 0.0247644  alpha = 1
+      it 5, |du| = 0.695418, |r| = 0.00681744  alpha = 1
+      it 6, |du| = 0.28261, |r| = 0.000883238  alpha = 1
+      it 7, |du| = 0.0568453, |r| = 2.70605e-05  alpha = 1
+      it 8, |du| = 0.00194661, |r| = 1.34189e-07  alpha = 1
+
+      iterations: 9, |du| = 1.03622e-05, |r| = 1.22163e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.1                -1.67561e-14
+      source              0                   1.67561e-14
+      gate               -0.6                -2.7697e-21
+
+    Solve time: 0h 0m 27s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.2
+    Trying $Vd = 1.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0605042  alpha = 1
+      it 2, |du| = 0.795538, |r| = 0.0181343  alpha = 1
+      it 3, |du| = 0.60933, |r| = 0.00430161  alpha = 1
+      it 4, |du| = 0.262431, |r| = 0.000588785  alpha = 1
+      it 5, |du| = 0.0995698, |r| = 4.50491e-05  alpha = 1
+      it 6, |du| = 0.0144686, |r| = 1.05354e-06  alpha = 1
+
+      iterations: 7, |du| = 0.000153522, |r| = 2.68036e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.2                -1.68575e-14
+      source              0                   1.68575e-14
+      gate               -0.6                 1.53384e-21
+
+    Solve time: 0h 0m 20s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.3
+    Trying $Vd = 1.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0355415  alpha = 1
+      it 2, |du| = 1.90914, |r| = 0.0258137  alpha = 0.5
+      it 3, |du| = 5.26224, |r| = 0.0192064  alpha = 0.5
+      it 4, |du| = 2.33064, |r| = 0.0158332  alpha = 0.25
+      it 5, |du| = 1.604, |r| = 0.012407  alpha = 0.25
+      it 6, |du| = 1.4662, |r| = 0.00749021  alpha = 0.5
+      it 7, |du| = 0.725811, |r| = 0.00144602  alpha = 1
+      it 8, |du| = 0.140346, |r| = 4.03488e-05  alpha = 1
+      it 9, |du| = 0.00213124, |r| = 6.80634e-07  alpha = 1
+
+      iterations: 10, |du| = 2.05303e-05, |r| = 1.40103e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.3                -1.69536e-14
+      source              0                   1.69536e-14
+      gate               -0.6                -1.47322e-21
+
+    Solve time: 0h 0m 34s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.4
+    Trying $Vd = 1.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 5.74078, |r| = 7.45076  alpha = 1
+      it 2, |du| = 1.01096, |r| = 2.74668  alpha = 1
+      it 3, |du| = 1.05192, |r| = 1.01169  alpha = 1
+      it 4, |du| = 1.07291, |r| = 0.364502  alpha = 1
+      it 5, |du| = 1.73797, |r| = 0.128091  alpha = 1
+      it 6, |du| = 1.85678, |r| = 0.048565  alpha = 1
+      it 7, |du| = 1.84549, |r| = 0.0131231  alpha = 1
+      it 8, |du| = 0.610063, |r| = 0.000967406  alpha = 1
+      it 9, |du| = 0.0672058, |r| = 1.32902e-05  alpha = 1
+
+      iterations: 10, |du| = 0.000856168, |r| = 1.7998e-07
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.4                -1.70451e-14
+      source              0                   1.70451e-14
+      gate               -0.6                 1.72085e-22
+
+    Solve time: 0h 0m 30s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.5
+    Trying $Vd = 1.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0395111  alpha = 1
+      it 2, |du| = 0.369228, |r| = 0.00970192  alpha = 1
+      it 3, |du| = 0.39298, |r| = 0.0014437  alpha = 1
+      it 4, |du| = 0.104338, |r| = 3.79022e-05  alpha = 1
+      it 5, |du| = 0.00297209, |r| = 4.82719e-07  alpha = 1
+
+      iterations: 6, |du| = 4.51115e-05, |r| = 1.08418e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.5                -1.71323e-14
+      source              0                   1.71323e-14
+      gate               -0.6                 3.07824e-21
+
+    Solve time: 0h 0m 18s
+    <<<<------------------------------------------------------------------------
+
+  Solve time: 0h 12m 49s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vg = -0.4
+  Trying $Vg = -0.4
+
+  >>>>---------------------------- (driftdiffusion) ----------------------------
+    it 1, |du| = 7.73634, |r| = 0.0992677  alpha = 1
+    it 2, |du| = 0.158253, |r| = 0.00118899  alpha = 1
+    it 3, |du| = 0.0021069, |r| = 1.97395e-07  alpha = 1
+
+    iterations: 4, |du| = 3.71206e-07, |r| = 3.42455e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+    drain               0                   0
+    source              0                   0
+    gate               -0.4                 0
+
+  Solve time: 0h 0m 13s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>----------------------------- (sweep_drain) ------------------------------
+    Ramping to sweep value $Vd = 0
+    Trying $Vd = 0
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+
+      iterations: 1, |du| = 1.44926e-13, |r| = 3.19079e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0                   0
+      source              0                   0
+      gate               -0.4                 0
+
+    Solve time: 0h 0m 2.6s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.1
+    Trying $Vd = 0.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.037064  alpha = 1
+      it 2, |du| = 0.922134, |r| = 0.0347953  alpha = 0.0625
+      it 3, |du| = 0.961547, |r| = 0.0306839  alpha = 0.125
+      it 4, |du| = 0.734599, |r| = 0.0224893  alpha = 0.25
+      it 5, |du| = 0.669066, |r| = 0.00992066  alpha = 0.5
+      it 6, |du| = 0.447898, |r| = 0.00120641  alpha = 1
+      it 7, |du| = 0.0657647, |r| = 5.43783e-05  alpha = 1
+      it 8, |du| = 0.0143293, |r| = 9.50451e-07  alpha = 1
+
+      iterations: 9, |du| = 0.00064562, |r| = 4.99149e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.1                -3.14614e-11
+      source              0                   3.14614e-11
+      gate               -0.4                -1.5385e-18
+
+    Solve time: 0h 0m 30s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.2
+    Trying $Vd = 0.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.607727  alpha = 1
+      it 2, |du| = 2.62605, |r| = 0.498272  alpha = 0.03125
+      it 3, |du| = 3.91292, |r| = 0.380869  alpha = 0.25
+      it 4, |du| = 1.87447, |r| = 0.21887  alpha = 0.5
+      it 5, |du| = 2.18177, |r| = 0.0927398  alpha = 1
+      it 6, |du| = 0.344728, |r| = 0.0553201  alpha = 0.5
+      it 7, |du| = 0.480959, |r| = 0.0195757  alpha = 1
+      it 8, |du| = 0.189321, |r| = 0.00232497  alpha = 1
+      it 9, |du| = 0.0401975, |r| = 6.17173e-05  alpha = 1
+      it 10, |du| = 0.00100316, |r| = 3.8597e-07  alpha = 1
+
+      iterations: 11, |du| = 7.05427e-06, |r| = 1.88613e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.2                -3.21073e-11
+      source              0                   3.21073e-11
+      gate               -0.4                -1.56382e-18
+
+    Solve time: 0h 0m 35s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.3
+    Trying $Vd = 0.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.455545  alpha = 1
+      it 2, |du| = 3.82023, |r| = 0.275538  alpha = 0.5
+      it 3, |du| = 3.10377, |r| = 0.124087  alpha = 1
+      it 4, |du| = 1.52723, |r| = 0.0790829  alpha = 0.5
+      it 5, |du| = 1.45323, |r| = 0.0280673  alpha = 1
+      it 6, |du| = 0.613891, |r| = 0.00653255  alpha = 1
+      it 7, |du| = 0.201499, |r| = 0.00126378  alpha = 1
+      it 8, |du| = 0.0288951, |r| = 8.14619e-05  alpha = 1
+      it 9, |du| = 0.00216411, |r| = 8.20533e-07  alpha = 1
+
+      iterations: 10, |du| = 1.99926e-05, |r| = 8.70816e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.3                -3.26671e-11
+      source              0                   3.26671e-11
+      gate               -0.4                -1.59177e-18
+
+    Solve time: 0h 0m 28s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.4
+    Trying $Vd = 0.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.443091  alpha = 1
+      it 2, |du| = 5.27611, |r| = 0.245169  alpha = 1
+      it 3, |du| = 2.42224, |r| = 0.0888202  alpha = 1
+      it 4, |du| = 1.13933, |r| = 0.0256374  alpha = 1
+      it 5, |du| = 0.825299, |r| = 0.00967701  alpha = 1
+      it 6, |du| = 0.35877, |r| = 0.00225485  alpha = 1
+      it 7, |du| = 0.0837617, |r| = 0.00010924  alpha = 1
+      it 8, |du| = 0.0049595, |r| = 3.77127e-07  alpha = 1
+
+      iterations: 9, |du| = 1.61e-05, |r| = 4.07214e-12
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.4                -3.31446e-11
+      source              0                   3.31446e-11
+      gate               -0.4                -1.60907e-18
+
+    Solve time: 0h 0m 25s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.5
+    Trying $Vd = 0.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.409293  alpha = 1
+      it 2, |du| = 1.84012, |r| = 0.182176  alpha = 0.5
+      it 3, |du| = 3.19151, |r| = 0.0704231  alpha = 1
+      it 4, |du| = 1.59994, |r| = 0.0253083  alpha = 1
+      it 5, |du| = 0.435137, |r| = 0.00559214  alpha = 1
+      it 6, |du| = 0.110383, |r| = 0.000344417  alpha = 1
+      it 7, |du| = 0.00937446, |r| = 1.83907e-06  alpha = 1
+
+      iterations: 8, |du| = 4.7872e-05, |r| = 6.56163e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.5                -3.356e-11
+      source              0                   3.356e-11
+      gate               -0.4                -1.63176e-18
+
+    Solve time: 0h 0m 22s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.6
+    Trying $Vd = 0.6
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.36535  alpha = 1
+      it 2, |du| = 3.094, |r| = 0.208192  alpha = 0.5
+      it 3, |du| = 2.23955, |r| = 0.110233  alpha = 0.5
+      it 4, |du| = 2.00049, |r| = 0.0419075  alpha = 1
+      it 5, |du| = 0.849021, |r| = 0.0197628  alpha = 1
+      it 6, |du| = 0.877947, |r| = 0.00705794  alpha = 1
+      it 7, |du| = 0.116877, |r| = 0.000835079  alpha = 1
+      it 8, |du| = 0.0204396, |r| = 9.33528e-06  alpha = 1
+
+      iterations: 9, |du| = 0.000252779, |r| = 1.34643e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.6                -3.39275e-11
+      source              0                   3.39275e-11
+      gate               -0.4                -1.65495e-18
+
+    Solve time: 0h 0m 26s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.7
+    Trying $Vd = 0.7
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 5.60881, |r| = 6.86248  alpha = 1
+      it 2, |du| = 2.22477, |r| = 2.52678  alpha = 1
+      it 3, |du| = 1.54339, |r| = 0.926874  alpha = 1
+      it 4, |du| = 1.38005, |r| = 0.330397  alpha = 1
+      it 5, |du| = 1.33646, |r| = 0.112577  alpha = 1
+      it 6, |du| = 1.26042, |r| = 0.0448238  alpha = 1
+      it 7, |du| = 1.19786, |r| = 0.0170586  alpha = 1
+      it 8, |du| = 0.752017, |r| = 0.00264572  alpha = 1
+      it 9, |du| = 0.0912205, |r| = 6.95414e-05  alpha = 1
+      it 10, |du| = 0.00421313, |r| = 1.15426e-07  alpha = 1
+
+      iterations: 11, |du| = 6.85779e-06, |r| = 8.94054e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.7                -3.42579e-11
+      source              0                   3.42579e-11
+      gate               -0.4                -1.66617e-18
+
+    Solve time: 0h 0m 31s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.8
+    Trying $Vd = 0.8
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.105475  alpha = 1
+      it 2, |du| = 3.2117, |r| = 0.0331037  alpha = 1
+      it 3, |du| = 1.38334, |r| = 0.00771846  alpha = 1
+      it 4, |du| = 0.252561, |r| = 0.000657497  alpha = 1
+      it 5, |du| = 0.0277997, |r| = 7.88247e-06  alpha = 1
+
+      iterations: 6, |du| = 0.000421075, |r| = 1.64874e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.8                -3.45574e-11
+      source              0                   3.45574e-11
+      gate               -0.4                -1.66775e-18
+
+    Solve time: 0h 0m 17s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.9
+    Trying $Vd = 0.9
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0355753  alpha = 1
+      it 2, |du| = 1.01491, |r| = 0.0113806  alpha = 1
+      it 3, |du| = 3.1627, |r| = 0.00243913  alpha = 1
+      it 4, |du| = 0.168088, |r| = 0.000386116  alpha = 1
+      it 5, |du| = 0.0541347, |r| = 3.23378e-05  alpha = 1
+      it 6, |du| = 0.00431473, |r| = 2.68018e-07  alpha = 1
+
+      iterations: 7, |du| = 3.34021e-05, |r| = 1.71623e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.9                -3.48316e-11
+      source              0                   3.48316e-11
+      gate               -0.4                -1.69909e-18
+
+    Solve time: 0h 0m 20s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1
+    Trying $Vd = 1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.257768  alpha = 1
+      it 2, |du| = 5.78907, |r| = 0.166986  alpha = 0.5
+      it 3, |du| = 2.15053, |r| = 0.100664  alpha = 0.5
+      it 4, |du| = 1.7899, |r| = 0.0341029  alpha = 1
+      it 5, |du| = 0.653203, |r| = 0.00838788  alpha = 1
+      it 6, |du| = 0.312003, |r| = 0.000796647  alpha = 1
+      it 7, |du| = 0.0421854, |r| = 1.04783e-05  alpha = 1
+
+      iterations: 8, |du| = 0.000569567, |r| = 1.86563e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1                  -3.50845e-11
+      source              0                   3.50845e-11
+      gate               -0.4                -1.68966e-18
+
+    Solve time: 0h 0m 24s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.1
+    Trying $Vd = 1.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.1792  alpha = 1
+      it 2, |du| = 0.719709, |r| = 0.0591754  alpha = 1
+      it 3, |du| = 0.472721, |r| = 0.0205485  alpha = 1
+      it 4, |du| = 0.544782, |r| = 0.00373716  alpha = 1
+      it 5, |du| = 0.148081, |r| = 0.000294987  alpha = 1
+      it 6, |du| = 0.00786115, |r| = 6.82683e-06  alpha = 1
+
+      iterations: 7, |du| = 0.000190093, |r| = 4.32644e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.1                -3.53195e-11
+      source              0                   3.53195e-11
+      gate               -0.4                -1.71055e-18
+
+    Solve time: 0h 0m 21s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.2
+    Trying $Vd = 1.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0444464  alpha = 1
+      it 2, |du| = 0.234714, |r| = 0.0089857  alpha = 1
+      it 3, |du| = 0.183183, |r| = 0.00116699  alpha = 1
+      it 4, |du| = 0.0530137, |r| = 4.32452e-05  alpha = 1
+      it 5, |du| = 0.00258915, |r| = 8.35609e-08  alpha = 1
+
+      iterations: 6, |du| = 5.44489e-06, |r| = 5.84525e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.2                -3.5539e-11
+      source              0                   3.5539e-11
+      gate               -0.4                -1.71846e-18
+
+    Solve time: 0h 0m 17s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.3
+    Trying $Vd = 1.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.055041  alpha = 1
+      it 2, |du| = 2.34648, |r| = 0.0212727  alpha = 1
+      it 3, |du| = 0.85369, |r| = 0.0036003  alpha = 1
+      it 4, |du| = 0.2024, |r| = 0.000185913  alpha = 1
+      it 5, |du| = 0.0127079, |r| = 6.50363e-07  alpha = 1
+
+      iterations: 6, |du| = 4.08248e-05, |r| = 9.40829e-12
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.3                -3.57451e-11
+      source              0                   3.57451e-11
+      gate               -0.4                -1.73415e-18
+
+    Solve time: 0h 0m 17s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.4
+    Trying $Vd = 1.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.326619  alpha = 1
+      it 2, |du| = 4.69154, |r| = 0.163538  alpha = 1
+      it 3, |du| = 2.54962, |r| = 0.0491302  alpha = 1
+      it 4, |du| = 0.660313, |r| = 0.0099816  alpha = 1
+      it 5, |du| = 0.276493, |r| = 0.00093652  alpha = 1
+      it 6, |du| = 0.0330378, |r| = 1.31709e-05  alpha = 1
+
+      iterations: 7, |du| = 0.000409237, |r| = 3.60603e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.4                -3.59395e-11
+      source              0                   3.59395e-11
+      gate               -0.4                -1.74169e-18
+
+    Solve time: 0h 0m 22s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.5
+    Trying $Vd = 1.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 4.69167, |r| = 2.69338  alpha = 1
+      it 2, |du| = 1.4494, |r| = 0.979977  alpha = 1
+      it 3, |du| = 1.28858, |r| = 0.349078  alpha = 1
+      it 4, |du| = 1.01323, |r| = 0.119164  alpha = 1
+      it 5, |du| = 0.742759, |r| = 0.0356873  alpha = 1
+      it 6, |du| = 0.613955, |r| = 0.00814112  alpha = 1
+      it 7, |du| = 0.429848, |r| = 0.000738486  alpha = 1
+      it 8, |du| = 0.0208498, |r| = 4.24648e-06  alpha = 1
+
+      iterations: 9, |du| = 0.000130426, |r| = 4.24054e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.5                -3.61236e-11
+      source              0                   3.61236e-11
+      gate               -0.4                -1.75766e-18
+
+    Solve time: 0h 0m 26s
+    <<<<------------------------------------------------------------------------
+
+  Solve time: 0h 6m 21s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vg = -0.2
+  Trying $Vg = -0.2
+
+  >>>>---------------------------- (driftdiffusion) ----------------------------
+    it 1, |du| = 7.73634, |r| = 0.201098  alpha = 1
+    it 2, |du| = 0.379509, |r| = 0.0100729  alpha = 1
+    it 3, |du| = 0.0233713, |r| = 2.97287e-05  alpha = 1
+
+    iterations: 4, |du| = 6.85335e-05, |r| = 2.52099e-10
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+    drain               0                   0
+    source              0                   0
+    gate               -0.2                 0
+
+  Solve time: 0h 0m 11s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>----------------------------- (sweep_drain) ------------------------------
+    Ramping to sweep value $Vd = 0
+    Trying $Vd = 0
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+
+      iterations: 1, |du| = 5.81016e-10, |r| = 3.5144e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0                   0
+      source              0                   0
+      gate               -0.2                 0
+
+    Solve time: 0h 0m 2.8s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.1
+    Trying $Vd = 0.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.100199  alpha = 1
+      it 2, |du| = 1.88753, |r| = 0.0761587  alpha = 0.5
+      it 3, |du| = 0.88324, |r| = 0.0182095  alpha = 1
+      it 4, |du| = 0.26487, |r| = 0.00606182  alpha = 1
+      it 5, |du| = 0.0719502, |r| = 0.00108698  alpha = 1
+      it 6, |du| = 0.0144261, |r| = 3.09633e-05  alpha = 1
+
+      iterations: 7, |du| = 0.000361449, |r| = 2.46372e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.1                -4.97779e-08
+      source              0                   4.97779e-08
+      gate               -0.2                -2.62826e-15
+
+    Solve time: 0h 0m 21s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.2
+    Trying $Vd = 0.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0545729  alpha = 1
+      it 2, |du| = 1.66503, |r| = 0.039386  alpha = 0.5
+      it 3, |du| = 0.706198, |r| = 0.0176735  alpha = 0.5
+      it 4, |du| = 0.537168, |r| = 0.00363383  alpha = 1
+      it 5, |du| = 0.0890022, |r| = 0.000211253  alpha = 1
+      it 6, |du| = 0.003141, |r| = 4.33561e-07  alpha = 1
+
+      iterations: 7, |du| = 1.34156e-05, |r| = 2.32519e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.2                -5.13416e-08
+      source              0                   5.13416e-08
+      gate               -0.2                -2.50057e-15
+
+    Solve time: 0h 0m 21s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.3
+    Trying $Vd = 0.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.060226  alpha = 1
+      it 2, |du| = 1.30207, |r| = 0.0368854  alpha = 0.5
+      it 3, |du| = 0.870089, |r| = 0.0188307  alpha = 1
+      it 4, |du| = 0.198786, |r| = 0.00319572  alpha = 1
+      it 5, |du| = 0.0314308, |r| = 0.000833958  alpha = 1
+      it 6, |du| = 0.0143645, |r| = 0.000121944  alpha = 1
+      it 7, |du| = 0.00281607, |r| = 2.88078e-06  alpha = 1
+
+      iterations: 8, |du| = 6.90195e-05, |r| = 1.62663e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.3                -5.23805e-08
+      source              0                   5.23805e-08
+      gate               -0.2                -2.55141e-15
+
+    Solve time: 0h 0m 23s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.4
+    Trying $Vd = 0.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.053572  alpha = 1
+      it 2, |du| = 1.24929, |r| = 0.0199464  alpha = 1
+      it 3, |du| = 0.15603, |r| = 0.00997031  alpha = 0.5
+      it 4, |du| = 0.173814, |r| = 0.00191334  alpha = 1
+      it 5, |du| = 0.0189128, |r| = 0.000165085  alpha = 1
+
+      iterations: 6, |du| = 0.000909824, |r| = 2.44995e-06
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.4                -5.31728e-08
+      source              0                   5.31728e-08
+      gate               -0.2                -3.47858e-15
+
+    Solve time: 0h 0m 17s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.5
+    Trying $Vd = 0.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0419947  alpha = 1
+      it 2, |du| = 1.18215, |r| = 0.0276821  alpha = 0.5
+      it 3, |du| = 0.862765, |r| = 0.0111097  alpha = 1
+      it 4, |du| = 0.181559, |r| = 0.000543896  alpha = 1
+      it 5, |du| = 0.00985857, |r| = 2.94236e-06  alpha = 1
+
+      iterations: 6, |du| = 5.70679e-05, |r| = 1.1925e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.5                -5.38159e-08
+      source              0                   5.38159e-08
+      gate               -0.2                -2.62117e-15
+
+    Solve time: 0h 0m 17s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.6
+    Trying $Vd = 0.6
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0535436  alpha = 1
+      it 2, |du| = 0.381584, |r| = 0.0088215  alpha = 1
+      it 3, |du| = 0.10664, |r| = 0.000458323  alpha = 1
+      it 4, |du| = 0.0107938, |r| = 1.36898e-06  alpha = 1
+
+      iterations: 5, |du| = 2.91295e-05, |r| = 2.05242e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.6                -5.43574e-08
+      source              0                   5.43574e-08
+      gate               -0.2                -2.64725e-15
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.7
+    Trying $Vd = 0.7
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0424314  alpha = 1
+      it 2, |du| = 0.384912, |r| = 0.00705554  alpha = 1
+      it 3, |du| = 0.0788908, |r| = 0.000259042  alpha = 1
+      it 4, |du| = 0.00312697, |r| = 4.23001e-07  alpha = 1
+
+      iterations: 5, |du| = 6.99901e-06, |r| = 4.58019e-12
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.7                -5.48241e-08
+      source              0                   5.48241e-08
+      gate               -0.2                -2.67004e-15
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.8
+    Trying $Vd = 0.8
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0381091  alpha = 1
+      it 2, |du| = 1.00334, |r| = 0.0193061  alpha = 1
+      it 3, |du| = 0.137364, |r| = 0.000714008  alpha = 1
+      it 4, |du| = 0.00781609, |r| = 1.55876e-06  alpha = 1
+
+      iterations: 5, |du| = 3.32298e-05, |r| = 2.67945e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.8                -5.52305e-08
+      source              0                   5.52305e-08
+      gate               -0.2                -2.68973e-15
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.9
+    Trying $Vd = 0.9
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.125868  alpha = 1
+      it 2, |du| = 0.535968, |r| = 0.0191646  alpha = 1
+      it 3, |du| = 0.0999149, |r| = 0.000621535  alpha = 1
+      it 4, |du| = 0.00574008, |r| = 1.10674e-06  alpha = 1
+
+      iterations: 5, |du| = 1.56192e-05, |r| = 9.07701e-12
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.9                -5.55894e-08
+      source              0                   5.55894e-08
+      gate               -0.2                -2.70729e-15
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1
+    Trying $Vd = 1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0868484  alpha = 1
+      it 2, |du| = 0.64643, |r| = 0.00932106  alpha = 1
+      it 3, |du| = 0.0786994, |r| = 0.000182672  alpha = 1
+      it 4, |du| = 0.00210822, |r| = 9.13086e-08  alpha = 1
+
+      iterations: 5, |du| = 1.46901e-06, |r| = 3.94328e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1                  -5.5913e-08
+      source              0                   5.5913e-08
+      gate               -0.2                -2.72306e-15
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.1
+    Trying $Vd = 1.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0739311  alpha = 1
+      it 2, |du| = 0.603995, |r| = 0.017464  alpha = 1
+      it 3, |du| = 0.0723532, |r| = 0.00708131  alpha = 0.5
+      it 4, |du| = 0.0366546, |r| = 0.00070911  alpha = 1
+      it 5, |du| = 0.00292121, |r| = 1.08951e-05  alpha = 1
+
+      iterations: 6, |du| = 4.96237e-05, |r| = 2.70452e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.1                -5.62076e-08
+      source              0                   5.62076e-08
+      gate               -0.2                -2.73757e-15
+
+    Solve time: 0h 0m 17s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.2
+    Trying $Vd = 1.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.081237  alpha = 1
+      it 2, |du| = 0.574056, |r| = 0.0125112  alpha = 1
+      it 3, |du| = 0.07663, |r| = 0.000284314  alpha = 1
+      it 4, |du| = 0.00226254, |r| = 2.81688e-07  alpha = 1
+
+      iterations: 5, |du| = 3.33639e-06, |r| = 9.42965e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.2                -5.64775e-08
+      source              0                   5.64775e-08
+      gate               -0.2                -2.75058e-15
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.3
+    Trying $Vd = 1.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0801854  alpha = 1
+      it 2, |du| = 0.65587, |r| = 0.0101535  alpha = 1
+      it 3, |du| = 0.0726512, |r| = 0.000148474  alpha = 1
+      it 4, |du| = 0.00110468, |r| = 5.45374e-08  alpha = 1
+
+      iterations: 5, |du| = 3.63382e-07, |r| = 4.53599e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.3                -5.67262e-08
+      source              0                   5.67262e-08
+      gate               -0.2                -2.7627e-15
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.4
+    Trying $Vd = 1.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0826675  alpha = 1
+      it 2, |du| = 0.642551, |r| = 0.0090936  alpha = 1
+      it 3, |du| = 0.0559149, |r| = 0.000155373  alpha = 1
+      it 4, |du| = 0.00105928, |r| = 5.31455e-08  alpha = 1
+
+      iterations: 5, |du| = 5.53065e-07, |r| = 4.08124e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.4                -5.69571e-08
+      source              0                   5.69571e-08
+      gate               -0.2                -2.77397e-15
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.5
+    Trying $Vd = 1.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0722727  alpha = 1
+      it 2, |du| = 0.485477, |r| = 0.00743219  alpha = 1
+      it 3, |du| = 0.0466066, |r| = 9.551e-05  alpha = 1
+
+      iterations: 4, |du| = 0.000537085, |r| = 1.99328e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.5                -5.71727e-08
+      source              0                   5.71727e-08
+      gate               -0.2                -2.76042e-15
+
+    Solve time: 0h 0m 11s
+    <<<<------------------------------------------------------------------------
+
+  Solve time: 0h 4m 22s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vg = 0
+  Trying $Vg = 0
+
+  >>>>---------------------------- (driftdiffusion) ----------------------------
+    it 1, |du| = 7.73634, |r| = 13.9479  alpha = 1
+    it 2, |du| = 2.50398, |r| = 2.16886  alpha = 1
+    it 3, |du| = 0.805065, |r| = 0.191018  alpha = 1
+    it 4, |du| = 0.0990435, |r| = 0.00220416  alpha = 1
+    it 5, |du| = 0.00124877, |r| = 3.15114e-07  alpha = 1
+
+    iterations: 6, |du| = 1.94669e-07, |r| = 3.5463e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+    drain               0                   0
+    source              0                   0
+    gate                0                   0
+
+  Solve time: 0h 0m 16s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>----------------------------- (sweep_drain) ------------------------------
+    Ramping to sweep value $Vd = 0
+    Trying $Vd = 0
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+
+      iterations: 1, |du| = 9.19126e-14, |r| = 3.14332e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0                   0
+      source              0                   0
+      gate                0                   0
+
+    Solve time: 0h 0m 3.3s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.1
+    Trying $Vd = 0.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.254855  alpha = 1
+      it 2, |du| = 0.190827, |r| = 0.00413583  alpha = 1
+      it 3, |du| = 0.0302009, |r| = 0.000233002  alpha = 1
+      it 4, |du| = 0.00150644, |r| = 1.75146e-06  alpha = 1
+
+      iterations: 5, |du| = 7.0954e-06, |r| = 7.50307e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.1                -6.89926e-07
+      source              0                   6.89926e-07
+      gate                0                  -3.35402e-14
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.2
+    Trying $Vd = 0.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.40873  alpha = 1
+      it 2, |du| = 0.756762, |r| = 0.00948809  alpha = 1
+      it 3, |du| = 0.0881368, |r| = 0.00122786  alpha = 1
+      it 4, |du| = 0.00626187, |r| = 9.95024e-06  alpha = 1
+
+      iterations: 5, |du| = 6.91086e-05, |r| = 1.15324e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.2                -8.69215e-07
+      source              0                   8.69215e-07
+      gate                0                  -4.15533e-14
+
+    Solve time: 0h 0m 16s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.3
+    Trying $Vd = 0.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.216349  alpha = 1
+      it 2, |du| = 0.639343, |r| = 0.0308098  alpha = 1
+      it 3, |du| = 0.0356713, |r| = 0.000488252  alpha = 1
+      it 4, |du| = 0.0034953, |r| = 1.63921e-06  alpha = 1
+
+      iterations: 5, |du| = 1.22065e-05, |r| = 2.19565e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.3                -8.97205e-07
+      source              0                   8.97205e-07
+      gate                0                  -4.36926e-14
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.4
+    Trying $Vd = 0.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0206375  alpha = 1
+      it 2, |du| = 0.234582, |r| = 0.00303838  alpha = 1
+      it 3, |du| = 0.0094331, |r| = 9.34412e-06  alpha = 1
+
+      iterations: 4, |du| = 4.00684e-05, |r| = 4.25798e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.4                -9.01286e-07
+      source              0                   9.01286e-07
+      gate                0                  -4.38796e-14
+
+    Solve time: 0h 0m 11s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.5
+    Trying $Vd = 0.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0097598  alpha = 1
+      it 2, |du| = 0.169892, |r| = 0.000949738  alpha = 1
+      it 3, |du| = 0.00434546, |r| = 1.95255e-06  alpha = 1
+
+      iterations: 4, |du| = 7.98503e-06, |r| = 3.68706e-12
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.5                -9.02889e-07
+      source              0                   9.02889e-07
+      gate                0                  -4.39731e-14
+
+    Solve time: 0h 0m 12s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.6
+    Trying $Vd = 0.6
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0127081  alpha = 1
+      it 2, |du| = 0.155611, |r| = 0.000790266  alpha = 1
+      it 3, |du| = 0.00331476, |r| = 1.18565e-06  alpha = 1
+
+      iterations: 4, |du| = 5.22282e-06, |r| = 4.06377e-12
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.6                -9.03893e-07
+      source              0                   9.03893e-07
+      gate                0                  -4.40216e-14
+
+    Solve time: 0h 0m 12s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.7
+    Trying $Vd = 0.7
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0108281  alpha = 1
+      it 2, |du| = 0.1366, |r| = 0.000636026  alpha = 1
+      it 3, |du| = 0.00261754, |r| = 8.51688e-07  alpha = 1
+
+      iterations: 4, |du| = 2.58908e-06, |r| = 1.22344e-12
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.7                -9.04621e-07
+      source              0                   9.04621e-07
+      gate                0                  -4.40572e-14
+
+    Solve time: 0h 0m 12s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.8
+    Trying $Vd = 0.8
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00959272  alpha = 1
+      it 2, |du| = 0.120686, |r| = 0.000541266  alpha = 1
+      it 3, |du| = 0.00223865, |r| = 7.13797e-07  alpha = 1
+
+      iterations: 4, |du| = 1.53396e-06, |r| = 3.14473e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.8                -9.0519e-07
+      source              0                   9.0519e-07
+      gate                0                  -4.40853e-14
+
+    Solve time: 0h 0m 11s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.9
+    Trying $Vd = 0.9
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00884795  alpha = 1
+      it 2, |du| = 0.104228, |r| = 0.000433649  alpha = 1
+      it 3, |du| = 0.0018843, |r| = 8.21915e-07  alpha = 1
+
+      iterations: 4, |du| = 3.09297e-06, |r| = 5.24017e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.9                -9.05655e-07
+      source              0                   9.05655e-07
+      gate                0                  -4.41086e-14
+
+    Solve time: 0h 0m 11s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1
+    Trying $Vd = 1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00832092  alpha = 1
+      it 2, |du| = 0.0969158, |r| = 0.00038609  alpha = 1
+      it 3, |du| = 0.00163213, |r| = 3.28526e-07  alpha = 1
+
+      iterations: 4, |du| = 9.90603e-07, |r| = 4.00153e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1                  -9.06049e-07
+      source              0                   9.06049e-07
+      gate                0                  -4.41283e-14
+
+    Solve time: 0h 0m 13s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.1
+    Trying $Vd = 1.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00762415  alpha = 1
+      it 2, |du| = 0.0942498, |r| = 0.000370133  alpha = 1
+      it 3, |du| = 0.00139772, |r| = 2.21879e-07  alpha = 1
+
+      iterations: 4, |du| = 8.2505e-07, |r| = 4.08265e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.1                -9.06388e-07
+      source              0                   9.06388e-07
+      gate                0                  -4.41457e-14
+
+    Solve time: 0h 0m 11s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.2
+    Trying $Vd = 1.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00725959  alpha = 1
+      it 2, |du| = 0.0791269, |r| = 0.000318448  alpha = 1
+      it 3, |du| = 0.00133331, |r| = 2.44065e-07  alpha = 1
+
+      iterations: 4, |du| = 1.65354e-06, |r| = 1.29478e-12
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.2                -9.06687e-07
+      source              0                   9.06687e-07
+      gate                0                  -4.41614e-14
+
+    Solve time: 0h 0m 12s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.3
+    Trying $Vd = 1.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00724578  alpha = 1
+      it 2, |du| = 0.0766536, |r| = 0.000259775  alpha = 1
+      it 3, |du| = 0.00107565, |r| = 1.38663e-07  alpha = 1
+
+      iterations: 4, |du| = 4.17749e-07, |r| = 4.47863e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.3                -9.06953e-07
+      source              0                   9.06953e-07
+      gate                0                  -4.41758e-14
+
+    Solve time: 0h 0m 11s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.4
+    Trying $Vd = 1.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00685624  alpha = 1
+      it 2, |du| = 0.0737794, |r| = 0.000275762  alpha = 1
+
+      iterations: 3, |du| = 0.000868873, |r| = 1.08745e-06
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.4                -9.07193e-07
+      source              0                   9.07193e-07
+      gate                0                  -6.10939e-14
+
+    Solve time: 0h 0m 8.5s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.5
+    Trying $Vd = 1.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00647358  alpha = 1
+      it 2, |du| = 0.059933, |r| = 0.000204375  alpha = 1
+
+      iterations: 3, |du| = 0.000795908, |r| = 1.15831e-07
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.5                -9.07412e-07
+      source              0                   9.07412e-07
+      gate                0                  -5.5137e-14
+
+    Solve time: 0h 0m 8.8s
+    <<<<------------------------------------------------------------------------
+
+  Solve time: 0h 3m 17s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vg = 0.2
+  Trying $Vg = 0.2
+
+  >>>>---------------------------- (driftdiffusion) ----------------------------
+    it 1, |du| = 7.73634, |r| = 3.48505  alpha = 1
+    it 2, |du| = 0.530293, |r| = 0.0986204  alpha = 1
+    it 3, |du| = 0.0302101, |r| = 0.000278819  alpha = 1
+
+    iterations: 4, |du| = 0.000122903, |r| = 3.28108e-09
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+    drain               0                   0
+    source              0                   0
+    gate                0.2                 0
+
+  Solve time: 0h 0m 10s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>----------------------------- (sweep_drain) ------------------------------
+    Ramping to sweep value $Vd = 0
+    Trying $Vd = 0
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+
+      iterations: 1, |du| = 2.15222e-09, |r| = 3.41809e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0                   0
+      source              0                   0
+      gate                0.2                 0
+
+    Solve time: 0h 0m 2.7s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.1
+    Trying $Vd = 0.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0899493  alpha = 1
+      it 2, |du| = 0.0918693, |r| = 0.00201914  alpha = 1
+      it 3, |du| = 0.0137839, |r| = 0.000105065  alpha = 1
+
+      iterations: 4, |du| = 0.000531426, |r| = 3.84498e-07
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.1                -8.06489e-07
+      source              0                   8.06488e-07
+      gate                0.2                 4.62555e-13
+
+    Solve time: 0h 0m 11s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.2
+    Trying $Vd = 0.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.134629  alpha = 1
+      it 2, |du| = 0.333145, |r| = 0.0072864  alpha = 1
+      it 3, |du| = 0.12226, |r| = 0.00164069  alpha = 1
+      it 4, |du| = 0.0118623, |r| = 3.60691e-05  alpha = 1
+
+      iterations: 5, |du| = 0.000298386, |r| = 2.12393e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.2                -1.15194e-06
+      source              0                   1.15194e-06
+      gate                0.2                -4.36092e-14
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.3
+    Trying $Vd = 0.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.238615  alpha = 1
+      it 2, |du| = 0.794105, |r| = 0.0263921  alpha = 1
+      it 3, |du| = 0.171032, |r| = 0.00486204  alpha = 1
+      it 4, |du| = 0.0338039, |r| = 0.000269335  alpha = 1
+
+      iterations: 5, |du| = 0.000827826, |r| = 2.45155e-06
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.3                -1.33774e-06
+      source              0                   1.33774e-06
+      gate                0.2                 1.67124e-14
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.4
+    Trying $Vd = 0.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.293953  alpha = 1
+      it 2, |du| = 0.929201, |r| = 0.0263626  alpha = 1
+      it 3, |du| = 0.175065, |r| = 0.00334999  alpha = 1
+      it 4, |du| = 0.0277979, |r| = 8.56364e-05  alpha = 1
+
+      iterations: 5, |du| = 0.000646445, |r| = 7.65176e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.4                -1.4483e-06
+      source              0                   1.4483e-06
+      gate                0.2                -1.7996e-14
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.5
+    Trying $Vd = 0.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.323565  alpha = 1
+      it 2, |du| = 1.12971, |r| = 0.0347908  alpha = 1
+      it 3, |du| = 0.133602, |r| = 0.00288207  alpha = 1
+      it 4, |du| = 0.0351013, |r| = 4.92004e-05  alpha = 1
+
+      iterations: 5, |du| = 0.000630268, |r| = 2.80574e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.5                -1.5016e-06
+      source              0                   1.5016e-06
+      gate                0.2                -7.12545e-14
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.6
+    Trying $Vd = 0.6
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.184849  alpha = 1
+      it 2, |du| = 0.539786, |r| = 0.0182497  alpha = 1
+      it 3, |du| = 0.0685601, |r| = 0.000359517  alpha = 1
+      it 4, |du| = 0.00513123, |r| = 9.94776e-07  alpha = 1
+
+      iterations: 5, |du| = 2.10627e-05, |r| = 1.54628e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.6                -1.51776e-06
+      source              0                   1.51776e-06
+      gate                0.2                -7.39179e-14
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.7
+    Trying $Vd = 0.7
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0330995  alpha = 1
+      it 2, |du| = 0.24661, |r| = 0.00444038  alpha = 1
+      it 3, |du| = 0.00619193, |r| = 6.12117e-06  alpha = 1
+
+      iterations: 4, |du| = 2.58029e-05, |r| = 8.23162e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.7                -1.5214e-06
+      source              0                   1.5214e-06
+      gate                0.2                -7.40906e-14
+
+    Solve time: 0h 0m 12s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.8
+    Trying $Vd = 0.8
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00539282  alpha = 1
+      it 2, |du| = 0.0949762, |r| = 0.000356206  alpha = 1
+
+      iterations: 3, |du| = 0.000785666, |r| = 8.10929e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.8                -1.5226e-06
+      source              0                   1.5226e-06
+      gate                0.2                -7.0306e-14
+
+    Solve time: 0h 0m 8.9s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.9
+    Trying $Vd = 0.9
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00235957  alpha = 1
+      it 2, |du| = 0.0731855, |r| = 6.33245e-05  alpha = 1
+
+      iterations: 3, |du| = 0.000430053, |r| = 1.09257e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.9                -1.52327e-06
+      source              0                   1.52327e-06
+      gate                0.2                -7.69733e-14
+
+    Solve time: 0h 0m 8.7s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1
+    Trying $Vd = 1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00195944  alpha = 1
+      it 2, |du| = 0.0577793, |r| = 5.04737e-05  alpha = 1
+
+      iterations: 3, |du| = 0.000309578, |r| = 8.2947e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1                  -1.52374e-06
+      source              0                   1.52374e-06
+      gate                0.2                -7.56898e-14
+
+    Solve time: 0h 0m 8.8s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.1
+    Trying $Vd = 1.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00204015  alpha = 1
+      it 2, |du| = 0.045244, |r| = 4.96656e-05  alpha = 1
+
+      iterations: 3, |du| = 0.000230595, |r| = 5.80463e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.1                -1.5241e-06
+      source              0                   1.5241e-06
+      gate                0.2                -7.49315e-14
+
+    Solve time: 0h 0m 8.7s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.2
+    Trying $Vd = 1.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0022356  alpha = 1
+      it 2, |du| = 0.0347874, |r| = 4.39232e-05  alpha = 1
+
+      iterations: 3, |du| = 0.000155185, |r| = 3.55131e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.2                -1.52439e-06
+      source              0                   1.52439e-06
+      gate                0.2                -7.45052e-14
+
+    Solve time: 0h 0m 8.7s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.3
+    Trying $Vd = 1.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00239284  alpha = 1
+      it 2, |du| = 0.0277214, |r| = 3.43373e-05  alpha = 1
+
+      iterations: 3, |du| = 0.000117851, |r| = 1.32448e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.3                -1.52464e-06
+      source              0                   1.52464e-06
+      gate                0.2                -7.43427e-14
+
+    Solve time: 0h 0m 8.6s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.4
+    Trying $Vd = 1.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00242639  alpha = 1
+      it 2, |du| = 0.0237582, |r| = 2.21876e-05  alpha = 1
+
+      iterations: 3, |du| = 7.49411e-05, |r| = 5.6039e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.4                -1.52486e-06
+      source              0                   1.52486e-06
+      gate                0.2                -7.43076e-14
+
+    Solve time: 0h 0m 8.6s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.5
+    Trying $Vd = 1.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00230326  alpha = 1
+      it 2, |du| = 0.0190191, |r| = 1.11345e-05  alpha = 1
+
+      iterations: 3, |du| = 2.90175e-05, |r| = 9.64725e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.5                -1.52505e-06
+      source              0                   1.52505e-06
+      gate                0.2                -7.43033e-14
+
+    Solve time: 0h 0m 8.7s
+    <<<<------------------------------------------------------------------------
+
+  Solve time: 0h 3m 5.7s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vg = 0.4
+  Trying $Vg = 0.4
+
+  >>>>---------------------------- (driftdiffusion) ----------------------------
+    it 1, |du| = 7.73634, |r| = 1.26445  alpha = 1
+    it 2, |du| = 0.181227, |r| = 0.00770798  alpha = 1
+    it 3, |du| = 0.00203463, |r| = 1.19312e-06  alpha = 1
+
+    iterations: 4, |du| = 5.77684e-07, |r| = 3.64608e-13
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+    drain               0                   0
+    source              0                   0
+    gate                0.4                 0
+
+  Solve time: 0h 0m 10s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>----------------------------- (sweep_drain) ------------------------------
+    Ramping to sweep value $Vd = 0
+    Trying $Vd = 0
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+
+      iterations: 1, |du| = 1.45294e-13, |r| = 3.2904e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0                   0
+      source              0                   0
+      gate                0.4                 0
+
+    Solve time: 0h 0m 2.7s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.1
+    Trying $Vd = 0.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0529741  alpha = 1
+      it 2, |du| = 0.0687367, |r| = 0.00185335  alpha = 1
+      it 3, |du| = 0.00974332, |r| = 6.41468e-05  alpha = 1
+
+      iterations: 4, |du| = 0.000302494, |r| = 1.38963e-07
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.1                -8.43998e-07
+      source              0                   8.43998e-07
+      gate                0.4                 1.5155e-13
+
+    Solve time: 0h 0m 12s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.2
+    Trying $Vd = 0.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0706392  alpha = 1
+      it 2, |du| = 0.26243, |r| = 0.00517414  alpha = 1
+      it 3, |du| = 0.0888449, |r| = 0.00101234  alpha = 1
+      it 4, |du| = 0.00873831, |r| = 1.84616e-05  alpha = 1
+
+      iterations: 5, |du| = 0.000133298, |r| = 6.48933e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.2                -1.22967e-06
+      source              0                   1.22967e-06
+      gate                0.4                -5.72705e-14
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.3
+    Trying $Vd = 0.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.115044  alpha = 1
+      it 2, |du| = 0.566987, |r| = 0.015395  alpha = 1
+      it 3, |du| = 0.13093, |r| = 0.00236301  alpha = 1
+      it 4, |du| = 0.0114463, |r| = 3.05948e-05  alpha = 1
+
+      iterations: 5, |du| = 0.000195563, |r| = 1.96809e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.3                -1.45479e-06
+      source              0                   1.45479e-06
+      gate                0.4                -6.88081e-14
+
+    Solve time: 0h 0m 16s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.4
+    Trying $Vd = 0.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.136034  alpha = 1
+      it 2, |du| = 0.607081, |r| = 0.0122574  alpha = 1
+      it 3, |du| = 0.120347, |r| = 0.000860543  alpha = 1
+      it 4, |du| = 0.0110852, |r| = 1.02902e-05  alpha = 1
+
+      iterations: 5, |du| = 0.000141402, |r| = 2.29517e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.4                -1.61592e-06
+      source              0                   1.61592e-06
+      gate                0.4                -7.7682e-14
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.5
+    Trying $Vd = 0.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.160551  alpha = 1
+      it 2, |du| = 0.750939, |r| = 0.0160703  alpha = 1
+      it 3, |du| = 0.126488, |r| = 0.000835413  alpha = 1
+      it 4, |du| = 0.0245549, |r| = 1.42517e-05  alpha = 1
+
+      iterations: 5, |du| = 0.000540764, |r| = 6.3727e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.5                -1.73443e-06
+      source              0                   1.73443e-06
+      gate                0.4                -8.36369e-14
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.6
+    Trying $Vd = 0.6
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.201066  alpha = 1
+      it 2, |du| = 0.660984, |r| = 0.0102652  alpha = 1
+      it 3, |du| = 0.194023, |r| = 0.00123901  alpha = 1
+      it 4, |du| = 0.0227898, |r| = 2.70964e-05  alpha = 1
+
+      iterations: 5, |du| = 0.000405651, |r| = 1.48317e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.6                -1.82047e-06
+      source              0                   1.82047e-06
+      gate                0.4                -7.72222e-14
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.7
+    Trying $Vd = 0.7
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.24877  alpha = 1
+      it 2, |du| = 1.18141, |r| = 0.0284146  alpha = 1
+      it 3, |du| = 0.338122, |r| = 0.00238397  alpha = 1
+      it 4, |du| = 0.0184102, |r| = 4.36912e-05  alpha = 1
+
+      iterations: 5, |du| = 0.000621559, |r| = 8.64216e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.7                -1.87641e-06
+      source              0                   1.87641e-06
+      gate                0.4                -8.85904e-14
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.8
+    Trying $Vd = 0.8
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.274044  alpha = 1
+      it 2, |du| = 0.641823, |r| = 0.0185401  alpha = 1
+      it 3, |du| = 0.214458, |r| = 0.00286905  alpha = 1
+      it 4, |du| = 0.0510661, |r| = 7.77673e-05  alpha = 1
+      it 5, |du| = 0.00164648, |r| = 7.6827e-08  alpha = 1
+
+      iterations: 6, |du| = 1.53061e-06, |r| = 3.92929e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.8                -1.906e-06
+      source              0                   1.906e-06
+      gate                0.4                -9.28286e-14
+
+    Solve time: 0h 0m 18s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.9
+    Trying $Vd = 0.9
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.167741  alpha = 1
+      it 2, |du| = 0.568637, |r| = 0.0103387  alpha = 1
+      it 3, |du| = 0.0543372, |r| = 0.000124254  alpha = 1
+      it 4, |du| = 0.00133481, |r| = 8.30494e-08  alpha = 1
+
+      iterations: 5, |du| = 1.49691e-06, |r| = 3.89773e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.9                -1.91738e-06
+      source              0                   1.91738e-06
+      gate                0.4                -9.33853e-14
+
+    Solve time: 0h 0m 17s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1
+    Trying $Vd = 1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.05154  alpha = 1
+      it 2, |du| = 0.246215, |r| = 0.00498953  alpha = 1
+      it 3, |du| = 0.00611338, |r| = 3.59897e-06  alpha = 1
+
+      iterations: 4, |du| = 1.44781e-05, |r| = 1.19924e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1                  -1.92067e-06
+      source              0                   1.92067e-06
+      gate                0.4                -9.3548e-14
+
+    Solve time: 0h 0m 12s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.1
+    Trying $Vd = 1.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0104888  alpha = 1
+      it 2, |du| = 0.114715, |r| = 0.000861929  alpha = 1
+      it 3, |du| = 0.00125212, |r| = 2.42577e-07  alpha = 1
+
+      iterations: 4, |du| = 1.49031e-06, |r| = 4.84692e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.1                -1.92172e-06
+      source              0                   1.92172e-06
+      gate                0.4                -9.36013e-14
+
+    Solve time: 0h 0m 12s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.2
+    Trying $Vd = 1.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00296119  alpha = 1
+      it 2, |du| = 0.0475157, |r| = 0.00011017  alpha = 1
+
+      iterations: 3, |du| = 0.00022658, |r| = 6.95443e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.2                -1.92221e-06
+      source              0                   1.92221e-06
+      gate                0.4                -9.31125e-14
+
+    Solve time: 0h 0m 9.1s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.3
+    Trying $Vd = 1.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00155207  alpha = 1
+      it 2, |du| = 0.0289617, |r| = 1.93394e-05  alpha = 1
+
+      iterations: 3, |du| = 4.88848e-05, |r| = 2.38124e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.3                -1.92253e-06
+      source              0                   1.92253e-06
+      gate                0.4                -9.36076e-14
+
+    Solve time: 0h 0m 9.6s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.4
+    Trying $Vd = 1.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00115313  alpha = 1
+      it 2, |du| = 0.0211599, |r| = 5.38501e-06  alpha = 1
+
+      iterations: 3, |du| = 1.58234e-05, |r| = 1.73127e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.4                -1.92276e-06
+      source              0                   1.92276e-06
+      gate                0.4                -9.36552e-14
+
+    Solve time: 0h 0m 8.9s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.5
+    Trying $Vd = 1.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.000943262  alpha = 1
+      it 2, |du| = 0.0158073, |r| = 2.23316e-06  alpha = 1
+
+      iterations: 3, |du| = 8.11756e-06, |r| = 4.00615e-12
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.5                -1.92295e-06
+      source              0                   1.92295e-06
+      gate                0.4                -9.3668e-14
+
+    Solve time: 0h 0m 8.8s
+    <<<<------------------------------------------------------------------------
+
+  Solve time: 0h 3m 36s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vg = 0.6
+  Trying $Vg = 0.6
+
+  >>>>---------------------------- (driftdiffusion) ----------------------------
+    it 1, |du| = 7.73634, |r| = 0.764641  alpha = 1
+    it 2, |du| = 0.103933, |r| = 0.00179083  alpha = 1
+
+    iterations: 3, |du| = 0.00040167, |r| = 4.54049e-08
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+    drain               0                   0
+    source              0                   0
+    gate                0.6                 0
+
+  Solve time: 0h 0m 7.8s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>----------------------------- (sweep_drain) ------------------------------
+    Ramping to sweep value $Vd = 0
+    Trying $Vd = 0
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+
+      iterations: 1, |du| = 2.20219e-08, |r| = 3.43644e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0                   0
+      source              0                   0
+      gate                0.6                 0
+
+    Solve time: 0h 0m 2.7s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.1
+    Trying $Vd = 0.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0385818  alpha = 1
+      it 2, |du| = 0.0659163, |r| = 0.00177454  alpha = 1
+      it 3, |du| = 0.00781542, |r| = 4.74725e-05  alpha = 1
+
+      iterations: 4, |du| = 0.000212089, |r| = 6.87931e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.1                -8.64512e-07
+      source              0                   8.64512e-07
+      gate                0.6                 6.01407e-14
+
+    Solve time: 0h 0m 11s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.2
+    Trying $Vd = 0.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0490977  alpha = 1
+      it 2, |du| = 0.223102, |r| = 0.0042428  alpha = 1
+      it 3, |du| = 0.0745875, |r| = 0.000818361  alpha = 1
+      it 4, |du| = 0.006131, |r| = 1.62627e-05  alpha = 1
+
+      iterations: 5, |du| = 7.0384e-05, |r| = 2.69684e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.2                -1.26946e-06
+      source              0                   1.26946e-06
+      gate                0.6                -6.04606e-14
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.3
+    Trying $Vd = 0.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0755029  alpha = 1
+      it 2, |du| = 0.559323, |r| = 0.0145539  alpha = 1
+      it 3, |du| = 0.107167, |r| = 0.00158624  alpha = 1
+      it 4, |du| = 0.0129684, |r| = 4.33483e-05  alpha = 1
+
+      iterations: 5, |du| = 0.000195695, |r| = 2.68988e-07
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.3                -1.50806e-06
+      source              0                   1.50806e-06
+      gate                0.6                -7.04438e-14
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.4
+    Trying $Vd = 0.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0864808  alpha = 1
+      it 2, |du| = 0.486014, |r| = 0.0120825  alpha = 1
+      it 3, |du| = 0.0915027, |r| = 0.000599729  alpha = 1
+      it 4, |du| = 0.00580356, |r| = 3.51361e-06  alpha = 1
+
+      iterations: 5, |du| = 2.83886e-05, |r| = 2.78485e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.4                -1.68419e-06
+      source              0                   1.68419e-06
+      gate                0.6                -8.19744e-14
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.5
+    Trying $Vd = 0.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0972511  alpha = 1
+      it 2, |du| = 0.486308, |r| = 0.00649677  alpha = 1
+      it 3, |du| = 0.0893614, |r| = 0.00038505  alpha = 1
+      it 4, |du| = 0.00589981, |r| = 2.84251e-06  alpha = 1
+
+      iterations: 5, |du| = 5.23874e-05, |r| = 2.24596e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.5                -1.81967e-06
+      source              0                   1.81967e-06
+      gate                0.6                -8.85404e-14
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.6
+    Trying $Vd = 0.6
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.111832  alpha = 1
+      it 2, |du| = 0.637784, |r| = 0.0100979  alpha = 1
+      it 3, |du| = 0.133706, |r| = 0.000568686  alpha = 1
+      it 4, |du| = 0.0069998, |r| = 3.71706e-06  alpha = 1
+
+      iterations: 5, |du| = 3.34618e-05, |r| = 4.34316e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.6                -1.92512e-06
+      source              0                   1.92512e-06
+      gate                0.6                -9.36566e-14
+
+    Solve time: 0h 0m 18s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.7
+    Trying $Vd = 0.7
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.137007  alpha = 1
+      it 2, |du| = 0.565283, |r| = 0.00644042  alpha = 1
+      it 3, |du| = 0.218303, |r| = 0.000647588  alpha = 1
+      it 4, |du| = 0.0129857, |r| = 2.06602e-06  alpha = 1
+
+      iterations: 5, |du| = 8.18746e-05, |r| = 1.05095e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.7                -2.00693e-06
+      source              0                   2.00693e-06
+      gate                0.6                -9.77348e-14
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.8
+    Trying $Vd = 0.8
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.17093  alpha = 1
+      it 2, |du| = 0.747681, |r| = 0.00853354  alpha = 1
+      it 3, |du| = 0.242558, |r| = 0.00132577  alpha = 1
+      it 4, |du| = 0.0281849, |r| = 2.8189e-05  alpha = 1
+
+      iterations: 5, |du| = 0.000538598, |r| = 1.54489e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.8                -2.06955e-06
+      source              0                   2.06955e-06
+      gate                0.6                -9.24029e-14
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.9
+    Trying $Vd = 0.9
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.21726  alpha = 1
+      it 2, |du| = 1.24076, |r| = 0.0280065  alpha = 1
+      it 3, |du| = 0.368098, |r| = 0.00251887  alpha = 1
+      it 4, |du| = 0.063172, |r| = 6.32431e-05  alpha = 1
+      it 5, |du| = 0.00139015, |r| = 5.74137e-08  alpha = 1
+
+      iterations: 6, |du| = 1.69082e-06, |r| = 4.65772e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.9                -2.11377e-06
+      source              0                   2.11377e-06
+      gate                0.6                -1.02945e-13
+
+    Solve time: 0h 0m 17s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1
+    Trying $Vd = 1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.270332  alpha = 1
+      it 2, |du| = 0.672185, |r| = 0.0149686  alpha = 1
+      it 3, |du| = 0.180501, |r| = 0.00155661  alpha = 1
+      it 4, |du| = 0.0311321, |r| = 4.27195e-05  alpha = 1
+      it 5, |du| = 0.0010745, |r| = 5.33053e-08  alpha = 1
+
+      iterations: 6, |du| = 1.59791e-06, |r| = 4.19224e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1                  -2.14131e-06
+      source              0                   2.14131e-06
+      gate                0.6                -1.04287e-13
+
+    Solve time: 0h 0m 18s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.1
+    Trying $Vd = 1.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.243842  alpha = 1
+      it 2, |du| = 1.28667, |r| = 0.0275177  alpha = 1
+      it 3, |du| = 0.228733, |r| = 0.00241369  alpha = 1
+      it 4, |du| = 0.0490975, |r| = 3.52646e-05  alpha = 1
+
+      iterations: 5, |du| = 0.000799978, |r| = 1.12421e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.1                -2.15557e-06
+      source              0                   2.15557e-06
+      gate                0.6                -1.05144e-13
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.2
+    Trying $Vd = 1.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.143768  alpha = 1
+      it 2, |du| = 0.473738, |r| = 0.0106087  alpha = 1
+      it 3, |du| = 0.0598898, |r| = 0.000236798  alpha = 1
+      it 4, |du| = 0.00446194, |r| = 1.37667e-06  alpha = 1
+
+      iterations: 5, |du| = 2.72728e-05, |r| = 6.43025e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.2                -2.1609e-06
+      source              0                   2.1609e-06
+      gate                0.6                -1.0524e-13
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.3
+    Trying $Vd = 1.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.046067  alpha = 1
+      it 2, |du| = 0.218492, |r| = 0.00386921  alpha = 1
+      it 3, |du| = 0.00405728, |r| = 1.69361e-06  alpha = 1
+
+      iterations: 4, |du| = 5.33148e-06, |r| = 3.21183e-12
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.3                -2.1626e-06
+      source              0                   2.1626e-06
+      gate                0.6                -1.05327e-13
+
+    Solve time: 0h 0m 12s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.4
+    Trying $Vd = 1.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0109008  alpha = 1
+      it 2, |du| = 0.110582, |r| = 0.000820945  alpha = 1
+      it 3, |du| = 0.00103995, |r| = 1.74913e-07  alpha = 1
+
+      iterations: 4, |du| = 1.07527e-06, |r| = 4.34728e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.4                -2.16318e-06
+      source              0                   2.16318e-06
+      gate                0.6                -1.05357e-13
+
+    Solve time: 0h 0m 12s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 1.5
+    Trying $Vd = 1.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.00313509  alpha = 1
+      it 2, |du| = 0.0484639, |r| = 0.000124371  alpha = 1
+
+      iterations: 3, |du| = 0.000217948, |r| = 7.3575e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               1.5                -2.16345e-06
+      source              0                   2.16345e-06
+      gate                0.6                -1.04846e-13
+
+    Solve time: 0h 0m 9s
+    <<<<------------------------------------------------------------------------
+
+  Solve time: 0h 3m 54s
+  <<<<--------------------------------------------------------------------------
+  Ramping to sweep value $Vg = 0.8
+  Trying $Vg = 0.8
+
+  >>>>---------------------------- (driftdiffusion) ----------------------------
+    it 1, |du| = 7.73634, |r| = 0.552259  alpha = 1
+    it 2, |du| = 0.0718791, |r| = 0.000668201  alpha = 1
+
+    iterations: 3, |du| = 0.000126878, |r| = 4.54564e-09
+    Surface recombination current = 0
+
+    contact name:       voltage:            current:
+    drain               0                   0
+    source              0                   0
+    gate                0.8                 0
+
+  Solve time: 0h 0m 11s
+  <<<<--------------------------------------------------------------------------
+
+  >>>>----------------------------- (sweep_drain) ------------------------------
+    Ramping to sweep value $Vd = 0
+    Trying $Vd = 0
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+
+      iterations: 1, |du| = 2.13762e-09, |r| = 3.52245e-13
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0                   0
+      source              0                   0
+      gate                0.8                 0
+
+    Solve time: 0h 0m 2.8s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.1
+    Trying $Vd = 0.1
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0309988  alpha = 1
+      it 2, |du| = 0.0645099, |r| = 0.00171264  alpha = 1
+      it 3, |du| = 0.00662337, |r| = 3.88815e-05  alpha = 1
+
+      iterations: 4, |du| = 0.000158775, |r| = 4.01971e-08
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.1                -8.78153e-07
+      source              0                   8.78153e-07
+      gate                0.8                 2.07905e-14
+
+    Solve time: 0h 0m 12s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.2
+    Trying $Vd = 0.2
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0386898  alpha = 1
+      it 2, |du| = 0.191374, |r| = 0.00372482  alpha = 1
+      it 3, |du| = 0.0677451, |r| = 0.00067374  alpha = 1
+      it 4, |du| = 0.00605358, |r| = 1.10826e-05  alpha = 1
+
+      iterations: 5, |du| = 6.35677e-05, |r| = 2.9423e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.2                -1.29514e-06
+      source              0                   1.29514e-06
+      gate                0.8                -6.22205e-14
+
+    Solve time: 0h 0m 16s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.3
+    Trying $Vd = 0.3
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0568793  alpha = 1
+      it 2, |du| = 0.444486, |r| = 0.0112405  alpha = 1
+      it 3, |du| = 0.0916294, |r| = 0.00266932  alpha = 1
+      it 4, |du| = 0.0145004, |r| = 0.000187516  alpha = 1
+
+      iterations: 5, |du| = 0.000998851, |r| = 2.16724e-07
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.3                -1.54066e-06
+      source              0                   1.54066e-06
+      gate                0.8                -5.67269e-14
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.4
+    Trying $Vd = 0.4
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0649231  alpha = 1
+      it 2, |du| = 0.419306, |r| = 0.00760738  alpha = 1
+      it 3, |du| = 0.0788882, |r| = 0.000460358  alpha = 1
+      it 4, |du| = 0.00411572, |r| = 2.55764e-06  alpha = 1
+
+      iterations: 5, |du| = 2.395e-05, |r| = 1.13638e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.4                -1.72318e-06
+      source              0                   1.72318e-06
+      gate                0.8                -8.3887e-14
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.5
+    Trying $Vd = 0.5
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.070439  alpha = 1
+      it 2, |du| = 0.399642, |r| = 0.00700736  alpha = 1
+      it 3, |du| = 0.0599062, |r| = 0.000341286  alpha = 1
+      it 4, |du| = 0.00350373, |r| = 4.64004e-06  alpha = 1
+
+      iterations: 5, |du| = 4.19478e-05, |r| = 1.32984e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.5                -1.86505e-06
+      source              0                   1.86505e-06
+      gate                0.8                -9.08022e-14
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.6
+    Trying $Vd = 0.6
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0800746  alpha = 1
+      it 2, |du| = 0.369716, |r| = 0.00428196  alpha = 1
+      it 3, |du| = 0.0759382, |r| = 0.00022897  alpha = 1
+      it 4, |du| = 0.00338862, |r| = 1.30794e-06  alpha = 1
+
+      iterations: 5, |du| = 2.48034e-05, |r| = 7.74359e-11
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.6                -1.97704e-06
+      source              0                   1.97704e-06
+      gate                0.8                -9.62704e-14
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.7
+    Trying $Vd = 0.7
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.0929632  alpha = 1
+      it 2, |du| = 0.577561, |r| = 0.00771494  alpha = 1
+      it 3, |du| = 0.0926014, |r| = 0.000331276  alpha = 1
+      it 4, |du| = 0.00721286, |r| = 2.30046e-06  alpha = 1
+
+      iterations: 5, |du| = 4.18842e-05, |r| = 1.38207e-10
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.7                -2.06594e-06
+      source              0                   2.06594e-06
+      gate                0.8                -1.00575e-13
+
+    Solve time: 0h 0m 15s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.8
+    Trying $Vd = 0.8
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.112438  alpha = 1
+      it 2, |du| = 0.545887, |r| = 0.00821453  alpha = 1
+      it 3, |du| = 0.0749864, |r| = 0.000420914  alpha = 1
+      it 4, |du| = 0.0139571, |r| = 8.30531e-06  alpha = 1
+
+      iterations: 5, |du| = 0.000342437, |r| = 5.21931e-09
+      Surface recombination current = 0
+
+      contact name:       voltage:            current:
+      drain               0.8                -2.13629e-06
+      source              0                   2.13629e-06
+      gate                0.8                -1.03578e-13
+
+    Solve time: 0h 0m 14s
+    <<<<------------------------------------------------------------------------
+    Ramping to sweep value $Vd = 0.9
+    Trying $Vd = 0.9
+
+    >>>>--------------------------- (driftdiffusion) ---------------------------
+      it 1, |du| = 3.86817, |r| = 0.138194  alpha = 1
+      it 2, |du| = 0.912781, |r| = 0.0118584  alpha = 1
+      it 3, |du| = 0.150595, |r| = 0.000398557  alpha = 1
+      it 4, |du| = 0.010015, |r| = 2.69408e-06  alpha = 1

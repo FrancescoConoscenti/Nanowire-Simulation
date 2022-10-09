@@ -1,0 +1,16 @@
+# Parameter sweep (transchar_sweep_drain)
+# Simulation    : transchar
+# Sweep variable: $Vd
+# Data ordering : column
+# Data:
+# --------------------------------------------------
+# Name                     Units          Type
+# --------------------------------------------------
+# drain.current            A              real
+# gate.current             A              real
+# source.current           A              real
+# --------------------------------------------------
+#
+# $Vd drain.current gate.current source.current 
+0.02 -2.11777e-07 -5.44512e-17 2.11777e-07
+1 -1.88288e-06 -6.55398e-16 1.88288e-06

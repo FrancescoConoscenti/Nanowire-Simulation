@@ -1,0 +1,98 @@
+
+# Si-nanowire FET
+
+
+Device
+{
+  meshfile = si_nw_fet.msh  
+  mesh_units = 1e-9
+
+  material = Si
+   
+   Region source_region
+   {
+     Doping {
+       type = donor
+       Nd = 5e19 
+     }
+   }
+
+   Region drain_region
+   {
+     Doping {
+       type = donor
+       Nd = 5e19 
+     }
+   }
+
+   Region oxide
+   {
+     material = SiO2
+   }
+
+   Region channel 
+   {
+     Doping {
+       type = acceptor
+       Nd = 1e18
+     }
+   }
+
+}
+
+
+# Definition of  Simulation Models  and associated Boundary Conditions 
+Module driftdiffusion
+{ 
+              
+  # we solve only for electrons
+  coupling = electrons
+
+  quadrature_rule = trapez
+
+  plot = (Ec, Ev, eQFermi, hQFermi, eDensity, hDensity,
+          eCurrentDensity, hCurrentDensity, NetRecombination,
+          ElField, ElPotential, ContactCurrent)
+
+  Physics
+  {
+    mobility field_dependent
+    {
+      low_field_model = doping_dependent
+    }
+  }
+
+
+  Contact gate
+  {
+    type = schottky
+    barrier_height = 3.0
+
+    voltage = $Vg[0.0]
+  }
+
+  Contact source
+  {
+    voltage = 0.0
+  }
+ 
+  Contact drain
+  {
+    voltage = $Vd[0.0]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

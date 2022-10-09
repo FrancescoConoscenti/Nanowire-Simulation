@@ -1,0 +1,22 @@
+# Parameter sweep (sweep_drain)
+# Simulation    : driftdiffusion
+# Sweep variable: $Vd
+# Data ordering : column
+# Data:
+# --------------------------------------------------
+# Name                     Units          Type
+# --------------------------------------------------
+# drain.current            A              real
+# gate.current             A              real
+# source.current           A              real
+# --------------------------------------------------
+#
+# $Vd drain.current gate.current source.current 
+0 0 0 0
+0.1 -3.24688e-11 1.21961e-18 3.24688e-11
+0.2 -3.44432e-11 1.16868e-18 3.44432e-11
+0.3 -3.56943e-11 1.27126e-18 3.56943e-11
+0.4 -3.66266e-11 1.19024e-18 3.66266e-11
+0.5 -3.73837e-11 1.20393e-18 3.73837e-11
+0.6 -3.80267e-11 1.23567e-18 3.80267e-11
+0.7 -3.85883e-11 1.33111e-18 3.85882e-11

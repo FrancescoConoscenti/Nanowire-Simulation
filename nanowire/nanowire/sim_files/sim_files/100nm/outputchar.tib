@@ -1,0 +1,33 @@
+
+@include si_nw_fet.tib
+
+Module sweep
+{
+  name = sweep_drain
+  solve = driftdiffusion
+  variable = $Vd
+  start = 0.0
+  stop = 1.5
+  steps = 15
+  plot_data = true
+}
+
+Module sweep
+{
+  name = outputchar_sweep_gate
+  variable = $Vg
+  start = -0.8
+  stop = 0.8
+  steps =  8
+  solve = sweep_drain 
+#  plot_data = true
+}
+
+Simulation
+{
+  temperature = 300
+  solve = outputchar_sweep_gate
+  resultpath = outputchar
+  output_format = vtk
+}
+
